@@ -43,3 +43,59 @@ body {
   .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
   .info .link {color: #5085BB;}  
 }
+
+@layer components
+{
+  /* https://stackoverflow.com/questions/12906789/preventing-an-image-from-being-draggable-or-selectable-without-using-js */
+  .unselectable
+  {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+@layer components
+{
+  .designer
+  {
+    @apply w-full flex flex-col bg-stone-100 p-6;
+  }
+}
+
+@layer components
+{
+  .container
+  {
+    @apply w-full;
+  }
+}
+
+@layer components
+{
+  .heros-profile-container
+  {
+    @apply py-4;
+  }
+
+  .heros-profile
+  {
+    @apply my-6 px-4 flex items-center;
+  }
+
+  .hero-profile
+  {
+    @apply p-4
+  }
+}
+
+@layer components
+{
+  .place-section
+  {
+    @apply p-4;
+  }
+}
