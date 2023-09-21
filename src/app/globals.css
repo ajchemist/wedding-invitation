@@ -16,14 +16,19 @@
   }
 }
 
-body {
+.nextjs-fgbg {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)) no-repeat;
+}
+
+html,
+body {
+  font-family: -apple-system, Roboto, Helvetica Neue, sans-serif;
 }
 
 @layer components
