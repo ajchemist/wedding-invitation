@@ -131,7 +131,7 @@ function HallTextComponent({ title, address, contact }: PlaceProps) {
     <section className="place-section text-center md:text-left space-y-2">
       <div className={`${bebasneue.className} text-4xl`}>House of Demer</div>
       <h1 className={`${dongle.className} text-3xl`}>{title}</h1>
-      <h2 className={`${dongle.className} font-light text-2xl`)}>{address}</h2>
+      <h2 className={`${dongle.className} font-light text-2xl`}>{address}</h2>
       <h3>{contact}</h3>
     </section>
   )
