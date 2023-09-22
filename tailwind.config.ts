@@ -15,6 +15,9 @@ const config: Config = {
       },
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require('@tailwindcss/aspect-ratio')
   ],

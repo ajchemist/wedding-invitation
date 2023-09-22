@@ -8,7 +8,7 @@ export const inter = Inter({
 
 export const noto_serif_kr = Noto_Serif_KR({
     subsets: ["latin"],
-    weight: ["300", "400", "700"],
+    weight: ["200", "300", "400", "500", "600", "700"],
     variable: "--font-noto-serif-kr"
 });
 

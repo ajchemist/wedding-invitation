@@ -12,7 +12,8 @@ import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '
 import { WindowSize } from 'types/app';
 import { useWindowSize } from '@/components/Responsive';
 import { HOD_KakaoMap } from '@/components/Place';
-import { cafe24_dangdanghae } from '@/app/fonts';
+import { Calendar } from '@/components/Calendar';
+import { noto_serif_kr, cafe24_dangdanghae } from '@/app/fonts';
 
 const bebasneue = Bebas_Neue({
   subsets: ["latin"],
@@ -58,17 +59,12 @@ export default function Home() {
           <section>
           </section>
         </div>
-        <div className="heros-profile-container">
-          <div className="heros-profile">
-            <div className={`${cafe24_dangdanghae.className} hero-profile groom`}>
-              석진
-            </div>
-            <div className="hero-profile bride">
-            </div>
-          </div>
-        </div>
+
         <div className="max-w-screen-xl w-11/12">
           <Place></Place>
+        </div>
+        <div className={`container`}>
+          <Calendar dday={{ year: 2023, month: 11, day: 11 }} />
         </div>
         <div className="designer">
           <p className={`${roboto_condensed.className} p-0.5 text-sm mx-auto`}>designed by alchemia in Gwangju, 2023</p>
@@ -128,10 +124,10 @@ function Place() {
 
 function HallTextComponent({ title, address, contact }: PlaceProps) {
   return (
-    <section className="place-section text-center md:text-left space-y-2">
+    <section className="place-section text-center md:text-left space-y-1">
       <div className={`${bebasneue.className} text-4xl`}>House of Demer</div>
-      <h1 className={`${dongle.className} text-3xl`}>{title}</h1>
-      <h2 className={`${dongle.className} font-light text-2xl`}>{address}</h2>
+      <h1 className={`${noto_serif_kr.className} text-2xl tracking-tighter`}>{title}</h1>
+      <h2 className={`${noto_serif_kr.className} font-light text-xl tracking-tighter`}>{address}</h2>
       <h3>{contact}</h3>
     </section>
   )
