@@ -7,13 +7,14 @@ import Script from 'next/script';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
-import { HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, KAKAO_JS_APP_KEY } from '@/app/fixtures';
+import { HEROS, HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
 import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '@/integrations/Kakao';
 import { WindowSize } from 'types/app';
 import { useWindowSize } from '@/components/Responsive';
 import { HOD_KakaoMap } from '@/components/Place';
 import { Calendar } from '@/components/Calendar';
 import { noto_serif_kr, cafe24_dangdanghae } from '@/app/fonts';
+import { InviteLetter, MainHeros } from '@/components/Hero';
 
 const bebasneue = Bebas_Neue({
   subsets: ["latin"],
@@ -49,16 +50,10 @@ export default function Home() {
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         </div>
 
-        <div className="invite-container">
-          <section>
-          </section>
-
-          <section>
-          </section>
-
-          <section>
-          </section>
-        </div>
+        <MainHeros {...HEROS}></MainHeros>
+        <div className={`my-6`}></div>
+        <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS}/>
+        <div className={`my-12`}></div>
 
         <div className="max-w-screen-xl w-11/12">
           <Place></Place>

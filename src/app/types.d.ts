@@ -1,4 +1,16 @@
 declare module "types/app" {
+    export interface Hero {
+        name?: string;
+        fullName: string;
+        bank?: string;
+        relationship?: string;
+        profileImage?: string;
+    }
+
+    export interface Heros {
+        [key: string]: Hero;
+    }
+
     export interface WindowSize {
         width: number | undefined;
         height: number | undefined;
