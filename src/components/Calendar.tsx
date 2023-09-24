@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
+// @ts-ignore
+import utc from 'dayjs-plugin-utc';
 import { noto_serif_kr, cafe24_danjunghae, cafe24_dangdanghae, cafe24_simplehae } from '@/app/fonts';
+
+dayjs.extend(utc);
 
 type CalendarProps = {
     dday: {
@@ -35,7 +39,7 @@ export const Calendar = ({ dday }: CalendarProps) => {
             </div>
             <div className={`grid grid-cols-7 gap-2 opacity-80`}>
                 {['일', '월', '화', '수', '목', '금', '토'].map((day) => (
-                    <div key={day} className="text-center">
+                    <div key={day} className="text-center min-h-[32px]">
                         {day}
                     </div>
                 ))}
@@ -46,7 +50,7 @@ export const Calendar = ({ dday }: CalendarProps) => {
                     return (
                         <div
                             key={index}
-                            className={`text-center p-2 rounded-full ${isHighlighted ? 'bg-red-200' : 'transparent'}`}
+                            className={`m-auto min-w-[32px] min-h-[32px] text-center text-sm p-1.5 rounded-full ${isHighlighted ? 'bg-red-200' : 'transparent'}`}
                         >
                             {dayNumber > 0 && dayNumber <= daysInMonth.length && dayNumber}
                         </div>
@@ -55,8 +59,8 @@ export const Calendar = ({ dday }: CalendarProps) => {
             </div>
             <p className={`mt-7 text-center font-light tracking-tighter`}>
                 <span className={`opacity-70`}>예식일이 </span> 
-                <span className={`font-medium text-xl opacity-80`}>{daysRemaining}</span>
-                <span className={`opacity-70`}>일 남았습니다.</span>
+                <span className={`font-medium text-xl opacity-80`}>{Math.abs(daysRemaining)}</span>
+                <span className={`opacity-70`}>{(daysRemaining < 0) ? '일 지났습니다.' : '일 남았습니다.'}</span>
             </p>
         </div>
     );
