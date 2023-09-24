@@ -1,6 +1,10 @@
 "use client";
 
 import { useRef, useEffect, useState, use } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import KakaoTalkSVG from '@/app/KakaoTalk_logo.svg';
+import * as Imgur from '@/integrations/Imgur';
 
 interface Props {
     isOpen: boolean;
@@ -8,8 +12,19 @@ interface Props {
 
 export const NavPanel = ({ isOpen }: Props) => {
     return (
-        <div className={`z-50 fixed w-full h-screen ${isOpen ? 'flex' : 'hidden'} inset-0 bg-white bg-opacity-80 backdrop-blur flex items-center justify-center transition-all duration-300`}>
-<ul className="primary-menu m-auto w-96 px-18"><li><a href="/">홈페이지</a></li><li><a href="/about/">소개</a></li><li><a href="/contact/">연락처</a></li></ul>            
+        <div className={`z-10 fixed inset-0 bg-gray-100 bg-opacity-80 transform transition-transform duration-500 ease-in-out origin-top ${isOpen ? 'scale-y-100' : 'scale-y-0'} backdrop-blur`}>
+            <ul className="primary-menu m-auto w-96 pt-12 px-12">
+                <li className={`text-2xl font-bold ${isOpen ? 'opacity-90' : 'opacity-0'}`} onClick={() => {
+                    window.Kakao.Share.sendCustom({
+                        templateId: 98561,
+                        templateArgs: {
+                            THU: Imgur.imageLink("44NZJXD", "h", ".jpg"),
+                        }
+                    })
+                }}>
+                    <Image className={`inline-block w-12 h-12`} src={KakaoTalkSVG} alt="KakaoTalk" width={80} height={80} /> 카카오톡 공유하기
+                </li>
+            </ul>
         </div>
     )
 }

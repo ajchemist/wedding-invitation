@@ -21,8 +21,8 @@ export type Image = {
 const ORIGIN_HOST = 'https://i.imgur.com';
 const API_ORIGIN_HOST = 'https://api.imgur.com';
 
-export const imageLink = (imageHash: Image["id"], thumbnail?: ("s" | "b" | "t" | "m" | "l" | "h"), extension?: ("jpg" | "png" | "webp")) => {
-    return `${ORIGIN_HOST}/${imageHash}${thumbnail ? `${thumbnail}` : ''}.${extension || 'webp'}`;
+export const imageLink = (imageHash: Image["id"], thumbnail?: ("s" | "b" | "t" | "m" | "l" | "h"), extension?: (".jpg" | ".png" | ".webp")) => {
+    return `${ORIGIN_HOST}/${imageHash}${thumbnail ? `${thumbnail}` : ''}${extension || '.webp'}`;
 };
 
 export const client = async (url: string, params: Params = {}) => {

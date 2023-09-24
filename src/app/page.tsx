@@ -12,6 +12,7 @@ import { HOD_KakaoMap } from '@/components/Place';
 import { Calendar } from '@/components/Calendar';
 import { noto_serif_kr, cafe24_dangdanghae } from '@/components/fonts';
 import { InviteLetter, MainHeros } from '@/components/Hero';
+import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
 import * as Imgur from '@/integrations/Imgur';
 
@@ -42,6 +43,7 @@ export default async function Home() {
   return (
     <KakaoMapSDKLoadingContextProvider>
       <KakaoSDKScript />
+      <PageMenu />
       <main className="flex min-h-screen flex-col items-center justify-between">
         {/* <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
           <Image src={Imgur.imageLink("GWMYmxD")} alt="초대장 인트로 웨딩포토P" fill={true} sizes="123vw" style={{ objectFit: 'none', objectPosition: 'top' }} />
@@ -53,17 +55,24 @@ export default async function Home() {
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         </div>
 
-        <section className={`container h-screen flex flex-col justify-center gap-4`}>
+        <section className={`md:hidden container h-screen flex flex-col justify-center gap-4`}>
           <MainHeros {...HEROS}></MainHeros>
           <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} datetimeTitle={DATETIME_TITLE} placeTitle={HOD_PLACE_TEXT_NAME} />
         </section>
+        <section className={`hidden md:flex container h-screen flex-col justify-center`}>
+          <MainHeros {...HEROS}></MainHeros>
+        </section>
+        <section className={`hidden md:flex container flex-col mb-12 justify-center`}>
+          <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} datetimeTitle={DATETIME_TITLE} placeTitle={HOD_PLACE_TEXT_NAME} />
+        </section>
+
 
         <section className={`p-2 md:p-3 lg:p-4`} >
           <Gallery images={images.data} />
           <div className={`my-12`}></div>
         </section>
 
-        <section className={`container`}>
+        <section className={`container flex justify-center`}>
           <Calendar dday={{ year: 2023, month: 11, day: 11 }} />
         </section>
 
