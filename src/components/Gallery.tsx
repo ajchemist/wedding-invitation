@@ -32,7 +32,7 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
     if (size.width !== undefined && size.width > 768) {
         lightboxProps.render = {};
     }
-    if (size.width !== undefined && size.height !== undefined && size.height / size.width > 1.5) {
+    if (size.width !== undefined && size.height !== undefined && size.height / size.width > 1.414) {
         lightboxProps.plugins = [Thumbnails];
         lightboxProps.thumbnails = { width: 96, height: 64, gap: 4 };
     }

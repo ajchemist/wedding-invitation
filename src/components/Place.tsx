@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
 import * as Icon from '@alchemiakr/web-components/icon';
 import { HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, KAKAO_JS_APP_KEY, render_HOD_KAKAO_MAP_OVERLAY_CONTENT } from '@/app/fixtures';

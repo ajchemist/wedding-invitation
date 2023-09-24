@@ -13,7 +13,7 @@ import { Calendar } from '@/components/Calendar';
 import { noto_serif_kr, cafe24_dangdanghae } from '@/components/fonts';
 import { InviteLetter, MainHeros } from '@/components/Hero';
 import { Gallery } from '@/components/Gallery';
-import { fetchAlbumImages } from '@/integrations/Imgur';
+import * as Imgur from '@/integrations/Imgur';
 
 const bebasneue = Bebas_Neue({
   subsets: ["latin"],
@@ -37,18 +37,19 @@ interface PlaceProps {
 }
 
 export default async function Home() {
-  const images = await fetchAlbumImages({}, 'uLfnMDZ');
+  const images = await Imgur.fetchAlbumImages({}, 'uLfnMDZ');
 
   return (
     <KakaoMapSDKLoadingContextProvider>
       <KakaoSDKScript />
       <main className="flex min-h-screen flex-col items-center justify-between">
-        <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
-          <Image src="https://i.imgur.com/GWMYmxD.webp" alt="초대장 인트로 웨딩포토P" fill={true} sizes="123vw" style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
+        {/* <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
+          <Image src={Imgur.imageLink("GWMYmxD")} alt="초대장 인트로 웨딩포토P" fill={true} sizes="123vw" style={{ objectFit: 'none', objectPosition: 'top' }} />
         </section>
         <section className="hidden portrait:hidden md:flex w-full min-h-screen items-start">
-          <Image src="https://i.imgur.com/AiNvEJR.webp" alt="초대장 인트로 웨딩포토L" fill={true} style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
-        </section>
+          <Image src={Imgur.imageLink("AiNvEJR")} alt="초대장 인트로 웨딩포토L" fill={true} style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
+        </section> */}
+
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         </div>
 
@@ -57,18 +58,20 @@ export default async function Home() {
           <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} datetimeTitle={DATETIME_TITLE} placeTitle={HOD_PLACE_TEXT_NAME} />
         </section>
 
-        <div className={`p-2 md:p-3 lg:p-4`} >
+        <section className={`p-2 md:p-3 lg:p-4`} >
           <Gallery images={images.data} />
-        </div>
-        <div className={`my-12`}></div>
+          <div className={`my-12`}></div>
+        </section>
 
-        <div className="max-w-screen-xl w-11/12">
-          <Place></Place>
-        </div>
-        <div className={`container`}>
+        <section className={`container`}>
           <Calendar dday={{ year: 2023, month: 11, day: 11 }} />
-        </div>
-        <div className="designer">
+        </section>
+
+        <section className="max-w-screen-xl w-11/12">
+          <Place />
+        </section>
+
+        <div id="designer" className="designer">
           <p className={`${roboto_condensed.className} p-0.5 text-sm mx-auto`}>designed by alchemia in Gwangju, 2023</p>
           <p className={`${roboto_condensed.className} font-light text-xs mx-auto opacity-70`}>with immense love for the bride.</p>
         </div>
