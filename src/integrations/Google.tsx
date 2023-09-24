@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef, useState, useEffect } from 'react';
 import Script from 'next/script';
 
 export const GTagScript = ({ gtagId }: { gtagId: string }) => {
