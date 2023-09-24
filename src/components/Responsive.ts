@@ -1,6 +1,7 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { WindowSize } from 'types/app';
-
 
 export const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState<WindowSize>({

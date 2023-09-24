@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
@@ -9,12 +6,13 @@ import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
 import { HEROS, HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
 import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '@/integrations/Kakao';
-import { WindowSize } from 'types/app';
 import { useWindowSize } from '@/components/Responsive';
 import { HOD_KakaoMap } from '@/components/Place';
 import { Calendar } from '@/components/Calendar';
 import { noto_serif_kr, cafe24_dangdanghae } from '@/app/fonts';
 import { InviteLetter, MainHeros } from '@/components/Hero';
+import { Gallery } from '@/components/Gallery';
+import { fetchAlbumImages } from '@/integrations/Imgur';
 
 const bebasneue = Bebas_Neue({
   subsets: ["latin"],
@@ -37,12 +35,14 @@ interface PlaceProps {
   contact?: string;
 }
 
-export default function Home() {
+export default async function Home() {
+  const images = await fetchAlbumImages({}, 'uLfnMDZ');
+
   return (
     <KakaoMapSDKLoadingContextProvider>
       <main className="flex min-h-screen flex-col items-center justify-between">
         <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
-          <Image src="https://i.imgur.com/GWMYmxD.webp" alt="초대장 인트로 웨딩포토P" fill={true} sizes="129vw" style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
+          <Image src="https://i.imgur.com/GWMYmxD.webp" alt="초대장 인트로 웨딩포토P" fill={true} sizes="123vw" style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
         </section>
         <section className="hidden portrait:hidden md:flex w-full min-h-screen items-start">
           <Image src="https://i.imgur.com/AiNvEJR.webp" alt="초대장 인트로 웨딩포토L" fill={true} style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
@@ -52,7 +52,12 @@ export default function Home() {
 
         <MainHeros {...HEROS}></MainHeros>
         <div className={`my-6`}></div>
-        <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS}/>
+        <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
+        <div className={`my-12`}></div>
+
+        <div className={`p-2 md:p-3 lg:p-4`} >
+          <Gallery images={images.data} />
+        </div>
         <div className={`my-12`}></div>
 
         <div className="max-w-screen-xl w-11/12">
@@ -75,47 +80,29 @@ function Footer() {
 }
 
 function Place() {
-  const size = useWindowSize();
+  return (
+    <>
+      <div className="md:hidden flex flex-col">
+        <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} />
 
-  if (size.width === undefined) {
-    return (
-      <div>Loading...</div>
-    )
-  }
+        <section className="order-2"><div className="w-full h-96"><HOD_KakaoMap /></div>
+        </section>
 
-  if (size.width <= 768) // tailwindcss md breakpoint
-  {
-    return (
-      <>
+        <section className="place-section order-last">
+        </section>
+      </div>
+      <div className="hidden md:flex space-x-3">
         <div className="flex flex-col">
           <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} />
-
-          <section className="order-2"><div className="w-full h-96"><HOD_KakaoMap /></div>
-          </section>
-
-          <section className="place-section order-last">
+          <section className="place-section">
           </section>
         </div>
-      </>
-    );
-  }
-  else {
-    return (
-      <>
-        <div className="flex space-x-3">
-          <div className="flex flex-col">
-            <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} />
-            <section className="place-section">
-            </section>
-          </div>
-          <section className="grow !ml-[4%] py-5 lg:p-5"><div className="w-full h-96"><HOD_KakaoMap /></div>
-          </section>
-        </div>
-      </>
-    );
-  }
+        <section className="grow !ml-[4%] py-5 lg:p-5"><div className="w-full h-96"><HOD_KakaoMap /></div>
+        </section>
+      </div>
+    </>
+  );
 }
-
 
 function HallTextComponent({ title, address, contact }: PlaceProps) {
   return (

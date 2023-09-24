@@ -8,6 +8,11 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.yarl__thumbnails_thumbnail {
+  --yarl__color_button: hsla(0, 0%, 100%, 0.4);
+  --yarl__thumbnails_thumbnail_active_border_color: hsla(0, 0%, 100%, 0.7);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -179,6 +184,7 @@ body {
   }
 
   .hero-parent-name {
+    @apply font-medium;
   }
 
   .invite-letter {

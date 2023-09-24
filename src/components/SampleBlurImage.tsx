@@ -13,8 +13,10 @@ export default function SampleBlurImage({ image }: { image: Imgur.Image }) {
                 <Image 
                     alt=""
                     src={image.link.replace(/\.jpg$/, '.webp')}
-                    layout="fill"
-                    objectFit="cover"
+                    fill={true}
+                    style={{objectFit: 'cover'}}
+                    // layout="fill"
+                    // objectFit="cover"
                     className={`group-hover:opacity-75 duration-700 ease-in-out ${isLoading ? 'grayscale blur-2xl scale-110' : 'grayscale-0 blur-0 scale-100'}}`}
                     onLoadingComplete={() => setLoading(false)}
                 />

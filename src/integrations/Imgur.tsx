@@ -1,19 +1,29 @@
+
+import { useState } from "react";
+import Image from "next/image";
+
 export type Params = {
     params?: Record<string, unknown>;
     headers?: Record<string, string>;
     [propName: string]: any;
-}
+};
 
 export type Image = {
     id: string;
-    title: string;
-    description: string;
+    title: string | null;
+    description: string | null;
     link: string;
     width: number;
     height: number;
-}
+    [key: string]: any;
+};
 
-const ORIGIN_HOST = 'https://api.imgur.com';
+const ORIGIN_HOST = 'https://i.imgur.com';
+const API_ORIGIN_HOST = 'https://api.imgur.com';
+
+export const imageLink = (imageHash: Image["id"], thumbnail?: ("s" | "b" | "t" | "m" | "l" | "h"), extension?: ("jpg" | "png" | "webp")) => {
+    return `${ORIGIN_HOST}/${imageHash}${thumbnail ? `${thumbnail}` : ''}.${extension || 'webp'}`;
+};
 
 export const client = async (url: string, params: Params = {}) => {
     const headers = {
@@ -50,7 +60,7 @@ export const client = async (url: string, params: Params = {}) => {
 
 export const fetchAlbumImages = async (params: Params, albumId: string) => {
     try {
-        const data = await client(`${ORIGIN_HOST}/3/album/${albumId}/images`, params);
+        const data = await client(`${API_ORIGIN_HOST}/3/album/${albumId}/images`, params);
         return data;
     } catch (err) {
         console.log(err)

@@ -1,4 +1,5 @@
 import * as Icon from '@alchemiakr/web-components/icon';
+import * as Imgur from '@/integrations/Imgur';
 
 export const KAKAO_JS_APP_KEY = 'a74750f9bbd999d047d1e16479e4ac33';
 export const HOD_PLACE_TEXT_NAME = '하우스 오브 드메르 1F 지젤홀';
@@ -21,8 +22,8 @@ export const INVITE_PARAGRAPH = [
 ]
 
 export const HEROS = {
-    groom: { name: '석진', fullName: '서석진', relationship: '子', bank: '토스뱅크 1000-5157-5332', profileImage: 'https://i.imgur.com/plaJPTO.webp' },
-    bride: { name: '민하', fullName: '송민하', relationship: '女', bank: '토스뱅크 1000-5161-1957', profileImage: 'https://i.imgur.com/JzzIVoJ.webp' },
+    groom: { name: '석진', fullName: '서석진', relationship: '子', bank: '토스뱅크 1000-5157-5332', profileImage: Imgur.imageLink("plaJPTO") },
+    bride: { name: '민하', fullName: '송민하', relationship: '女', bank: '토스뱅크 1000-5161-1957', profileImage: Imgur.imageLink("JzzIVoJ") },
     groomFather: { fullName: '서기문', bank: '' },
     groomMother: { fullName: '강문혜', bank: '' },
     brideFather: { fullName: '한승철', bank: '광주은행 720-121-401304' },
