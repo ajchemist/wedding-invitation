@@ -1,20 +1,19 @@
 import { noto_serif_kr, yuji_boku } from "@/app/fonts";
-import { Yuji_Boku } from "next/font/google";
 import Image from "next/image";
 import { Heros } from "types/app";
 
 export const MainHeros = ({ groom, bride }: Heros) => {
     return (
         <div className="main-heros-profile-container">
-            <div className={`heros-profile`}>
+            <div className={`heros-profile ${noto_serif_kr.className}`}>
                 <div className={`hero-profile groom`}>
-                    <div className={`next-image-container`}><Image src="https://i.imgur.com/plaJPTO.webp" alt="신랑 프로필 이미지" fill={true} style={{ objectFit: 'cover' }} /></div>
-                    <h3 className={`${noto_serif_kr.className}`}>{groom.fullName}</h3>
+                    <div className={`next-image-container`}><Image src={`${groom.profileImage}`} alt="신랑 프로필 이미지" fill={true} style={{ objectFit: 'cover' }} /></div>
+                    <h3 className={``}>{groom.fullName}</h3>
                     <h4>신랑</h4>
                 </div>
                 <div className={`hero-profile bride`}>
-                    <div className={`next-image-container`}><Image src="https://i.imgur.com/JzzIVoJ.webp" alt="신부 프로필 이미지" fill={true} style={{ objectFit: 'cover' }} /></div>
-                    <h3 className={`${noto_serif_kr.className}`}>{bride.fullName}</h3>
+                    <div className={`next-image-container`}><Image src={`${bride.profileImage}`} alt="신부 프로필 이미지" fill={true} style={{ objectFit: 'cover' }} /></div>
+                    <h3 className={``}>{bride.fullName}</h3>
                     <h4>신부</h4>
                 </div>
             </div>
