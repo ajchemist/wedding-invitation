@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import Script from 'next/script';
+import Link from 'next/link';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
 import { HEROS, HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
 import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '@/integrations/Kakao';
+import KakaoSDKScript from '@/components/KakaoSDKScript';
 import { useWindowSize } from '@/components/Responsive';
 import { HOD_KakaoMap } from '@/components/Place';
 import { Calendar } from '@/components/Calendar';
@@ -40,6 +41,7 @@ export default async function Home() {
 
   return (
     <KakaoMapSDKLoadingContextProvider>
+      <KakaoSDKScript />
       <main className="flex min-h-screen flex-col items-center justify-between">
         <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
           <Image src="https://i.imgur.com/GWMYmxD.webp" alt="초대장 인트로 웨딩포토P" fill={true} sizes="123vw" style={{ objectFit: 'none', objectPosition: 'top' }}></Image>

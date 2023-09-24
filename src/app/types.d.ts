@@ -29,9 +29,6 @@ declare module "types/Kakao" {
     export type jsAppKey = string;
     export type onLoad = () => void;
     export type Coordinate = { lat: number, lng: number };
-    export interface KakaoSDKProps {
-        onLoad: onLoad
-    };
     export interface KakaoMapProps {
         center: Coordinate,
         options?: object,

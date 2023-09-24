@@ -1,9 +1,9 @@
 "use client";
 
-import { KakaoMapProps, KakaoSDKProps, jsAppKey, onLoad } from 'types/Kakao';
+import { KakaoMapProps, jsAppKey, onLoad } from 'types/Kakao';
 // import { registerKakaoMapOnLoad } from '@/utils/Kakao';
 import { useRef, useState, useEffect, useLayoutEffect, createContext, useContext, ReactPropTypes } from 'react';
-import Script from 'next/script';
+import Script, { ScriptProps } from 'next/script';
 
 type KakaoMapSDKLoadingContextProviderProps = {
     children: React.ReactNode;
@@ -51,11 +51,15 @@ const executeQueue = () => {
 
 // 
 
-export const KakaoSDK = ({ onLoad }: KakaoSDKProps) => {
+export const KakaoSDK = ({ onLoad }: ScriptProps) => {
     return (
-        <>
-            <Script id="kakao-sdk" src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js" integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossOrigin="anonymous" onLoad={onLoad}></Script>
-        </>
+        <Script
+            id="kakao-sdk"
+            src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
+            integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH"
+            crossOrigin="anonymous"
+            onLoad={onLoad}
+        />
     )
 }
 
