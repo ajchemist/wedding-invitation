@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 // @ts-ignore
 import utc from 'dayjs-plugin-utc';
-import { noto_serif_kr, cafe24_danjunghae, cafe24_dangdanghae, cafe24_simplehae } from '@/app/fonts';
+import { noto_serif_kr, cafe24_danjunghae, cafe24_dangdanghae, cafe24_simplehae } from '@/components/fonts';
 
 dayjs.extend(utc);
 

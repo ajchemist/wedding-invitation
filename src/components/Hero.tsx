@@ -1,4 +1,4 @@
-import { noto_serif_kr, yuji_boku } from "@/app/fonts";
+import { noto_serif_kr, yuji_boku, dongle } from "@/components/fonts";
 import Image from "next/image";
 import { Heros } from "types/app";
 

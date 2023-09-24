@@ -9,7 +9,7 @@ import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '
 import { useWindowSize } from '@/components/Responsive';
 import { HOD_KakaoMap } from '@/components/Place';
 import { Calendar } from '@/components/Calendar';
-import { noto_serif_kr, cafe24_dangdanghae } from '@/app/fonts';
+import { noto_serif_kr, cafe24_dangdanghae } from '@/components/fonts';
 import { InviteLetter, MainHeros } from '@/components/Hero';
 import { Gallery } from '@/components/Gallery';
 import { fetchAlbumImages } from '@/integrations/Imgur';
