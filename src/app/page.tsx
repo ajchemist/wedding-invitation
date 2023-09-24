@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
-import { HEROS, HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
+import { DATETIME_TITLE, HEROS, HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
 import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '@/integrations/Kakao';
 import KakaoSDKScript from '@/components/KakaoSDKScript';
 import { useWindowSize } from '@/components/Responsive';
@@ -52,10 +52,10 @@ export default async function Home() {
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         </div>
 
-        <MainHeros {...HEROS}></MainHeros>
-        <div className={`my-6`}></div>
-        <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
-        <div className={`my-12`}></div>
+        <section className={`container h-screen flex flex-col justify-center gap-4`}>
+          <MainHeros {...HEROS}></MainHeros>
+          <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} datetimeTitle={DATETIME_TITLE} placeTitle={HOD_PLACE_TEXT_NAME} />
+        </section>
 
         <div className={`p-2 md:p-3 lg:p-4`} >
           <Gallery images={images.data} />

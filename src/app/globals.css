@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 250, 251, 252;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -21,7 +21,7 @@
   }
 }
 
-.nextjs-fgbg {
+html {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -188,11 +188,15 @@ body {
   }
 
   .invite-letter {
-    @apply m-auto;
+    @apply mx-auto;
   }
 
   .invite-letter > h1 {
     @apply font-bold text-xl mt-8 text-indigo-950;
+  }
+
+  .invite-letter > h1[data-category] {
+    @apply mt-1 text-3xl font-light ;
   }
 
   .invite-letter > p {

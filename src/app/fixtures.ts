@@ -2,6 +2,7 @@ import * as Icon from '@alchemiakr/web-components/icon';
 import * as Imgur from '@/integrations/Imgur';
 
 export const KAKAO_JS_APP_KEY = 'a74750f9bbd999d047d1e16479e4ac33';
+export const DATETIME_TITLE = '11월 11일 토요일 오전 11시';
 export const HOD_PLACE_TEXT_NAME = '하우스 오브 드메르 1F 지젤홀';
 export const HOD_PLACE_ADDRESS = '광주 광산구 임방울대로 551';
 export const HOD_PLACE_ADDRESS_LEGACY = '도천동 147-26';
