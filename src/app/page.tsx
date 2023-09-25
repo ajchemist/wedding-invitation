@@ -4,16 +4,16 @@ import Link from 'next/link';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
-import { DATETIME_TITLE, HEROS, HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEGACY, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_ZIP_CODE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
+import { DATETIME_TITLE, HEROS, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
 import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '@/integrations/Kakao';
 import KakaoSDKScript from '@/components/KakaoSDKScript';
 import { useWindowSize } from '@/components/Responsive';
-import { HOD_KakaoMap } from '@/components/Place';
+import Place from '@/app/components/Place';
 import { Calendar } from '@/components/Calendar';
 import { noto_serif_kr, cafe24_dangdanghae } from '@/components/fonts';
 import MainHeros from '@/components/MainHeros';
 import InviteLetter from '@/components/InviteLetter';
-import EventInfo from '@/components/EventInfo';
+// import EventInfo from '@/components/EventInfo';
 import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
 import * as Imgur from '@/integrations/Imgur';
@@ -33,18 +33,12 @@ const roboto_condensed = Roboto_Condensed({
   weight: ["300", "400"]
 });
 
-interface PlaceProps {
-  title?: string;
-  address?: string;
-  contact?: string;
-}
-
 export default async function Home() {
   const images = await Imgur.fetchAlbumImages({}, 'wRqi9Mk');
 
   return (
     <KakaoMapSDKLoadingContextProvider>
-      <KakaoSDKScript />
+      <KakaoSDKScript appkey={KAKAO_JS_APP_KEY} />
       <PageMenu />
       <main className="flex min-h-screen flex-col items-center justify-between">
         {/* <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
@@ -86,40 +80,4 @@ export default async function Home() {
 }
 
 function Footer() {
-}
-
-function Place() {
-  return (
-    <>
-      <div className="md:hidden flex flex-col">
-        <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} />
-
-        <section className="order-2"><div className="w-full h-96"><HOD_KakaoMap /></div>
-        </section>
-
-        <section className="place-section order-last">
-        </section>
-      </div>
-      <div className="hidden md:flex space-x-3">
-        <div className="flex flex-col">
-          <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} />
-          <section className="place-section">
-          </section>
-        </div>
-        <section className="grow !ml-[4%] py-5 lg:p-5"><div className="w-full h-96"><HOD_KakaoMap /></div>
-        </section>
-      </div>
-    </>
-  );
-}
-
-function HallTextComponent({ title, address, contact }: PlaceProps) {
-  return (
-    <section className="place-section text-center md:text-left space-y-1">
-      <div className={`${bebasneue.className} text-4xl`}>House of Demer</div>
-      <h1 className={`${noto_serif_kr.className} text-2xl tracking-tighter`}>{title}</h1>
-      <h2 className={`${noto_serif_kr.className} font-light text-xl tracking-tighter`}>{address}</h2>
-      <h3>{contact}</h3>
-    </section>
-  )
 }

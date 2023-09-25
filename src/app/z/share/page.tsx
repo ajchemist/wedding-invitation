@@ -5,8 +5,6 @@ import { HOD_KAKAO_MAP_OVERLAY_CONTENT, HOD_PLACE_ADDRESS, HOD_PLACE_ADDRESS_LEG
 import { KakaoMap, KakaoSDK } from "@/integrations/Kakao";
 import { useEffect } from "react";
 import { ZBlockContainer, ZContainer } from '../layout';
-import { HOD_KakaoMap } from '@/components/Place';
-
 
 const calendarEvent = {
     objectType: 'calendar',
