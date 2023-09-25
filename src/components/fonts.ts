@@ -1,10 +1,5 @@
-import { Inter, Noto_Serif_KR, Yuji_Boku, Dongle } from "next/font/google";
+import { Noto_Sans_KR, Noto_Serif_KR, Yuji_Boku, Dongle } from "next/font/google";
 import localFont from "next/font/local"
-
-export const inter = Inter({
-    subsets: ["latin"],
-    variable: "--font-inter"
-});
 
 export const dongle = Dongle({
     subsets: ["latin"],
@@ -15,6 +10,12 @@ export const noto_serif_kr = Noto_Serif_KR({
     subsets: ["latin"],
     weight: ["200", "300", "400", "500", "600", "700"],
     variable: "--font-noto-serif-kr"
+});
+
+export const noto_sans_kr = Noto_Sans_KR({
+    subsets: ["latin"],
+    weight: ["300", "400", "700"],
+    variable: "--font-noto-sans-kr"
 });
 
 export const yuji_boku = Yuji_Boku({

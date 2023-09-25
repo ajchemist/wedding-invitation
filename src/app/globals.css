@@ -21,19 +21,45 @@
   }
 }
 
-html {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)) no-repeat;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb)) no-repeat;
+  }
+
+  html,
+  body {
+    font-family: -apple-system, Roboto, Helvetica Neue, sans-serif;
+  }
 }
 
-html,
-body {
-  font-family: -apple-system, Roboto, Helvetica Neue, sans-serif;
+@layer utilities {
+  .icon {
+    @apply inline-flex justify-center items-center;
+  }
+
+  .material-symbols {
+    font-family: var(--font-material-symbols);
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga";
+  }
 }
 
 @layer components {
