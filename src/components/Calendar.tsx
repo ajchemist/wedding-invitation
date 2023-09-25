@@ -3,10 +3,12 @@
 import { useState, useEffect } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 // @ts-ignore
-import utc from 'dayjs-plugin-utc';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 import { noto_serif_kr, cafe24_danjunghae, cafe24_dangdanghae, cafe24_simplehae } from '@/components/fonts';
 
 dayjs.extend(utc);
+dayjs.extend(timezone);
 
 type CalendarProps = {
     dday: {
@@ -20,12 +22,12 @@ export const Calendar = ({ dday }: CalendarProps) => {
     const { year, month, day } = dday;
     const targetDay = dayjs().year(year).month(month - 1).date(day);
     const [currentMonth, setCurrentMonth] = useState<Dayjs>(targetDay);
-    const [daysRemaining, setDaysRemaining] = useState<number>(dayjs(targetDay).diff(dayjs(), 'day'));
+    const [daysRemaining, setDaysRemaining] = useState<number | null>(null);
 
     useEffect(() => {
         const { year, month, day } = dday;
         const targetDay = dayjs().year(year).month(month - 1).date(day);
-        setCurrentMonth(dayjs().year(year).month(month - 1).date(day));
+        setCurrentMonth(targetDay);
         setDaysRemaining(dayjs(targetDay).diff(dayjs(), 'day'));
     }, [dday]);
 
@@ -59,8 +61,8 @@ export const Calendar = ({ dday }: CalendarProps) => {
             </div>
             <p className={`mt-7 text-center font-light tracking-tighter`}>
                 <span className={`opacity-70`}>예식일이 </span> 
-                <span className={`font-medium text-xl opacity-80`}>{Math.abs(daysRemaining)}</span>
-                <span className={`opacity-70`}>{(daysRemaining < 0) ? '일 지났습니다.' : '일 남았습니다.'}</span>
+                <span className={`font-medium text-xl opacity-80`}>{daysRemaining ? Math.abs(daysRemaining) : null}</span>
+                <span className={`opacity-70`}>{daysRemaining ? ( (daysRemaining < 0) ? '일 지났습니다.' : '일 남았습니다.' ) : null}</span>
             </p>
         </div>
     );
