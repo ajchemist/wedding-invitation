@@ -11,7 +11,9 @@ import { useWindowSize } from '@/components/Responsive';
 import { HOD_KakaoMap } from '@/components/Place';
 import { Calendar } from '@/components/Calendar';
 import { noto_serif_kr, cafe24_dangdanghae } from '@/components/fonts';
-import { InviteLetter, MainHeros } from '@/components/Hero';
+import MainHeros from '@/components/MainHeros';
+import InviteLetter from '@/components/InviteLetter';
+import EventInfo from '@/components/EventInfo';
 import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
 import * as Imgur from '@/integrations/Imgur';
@@ -55,17 +57,10 @@ export default async function Home() {
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         </div>
 
-        <section className={`md:hidden container h-screen flex flex-col justify-center gap-4`}>
+        <section id="heros" className={`container h-screen landscape:h-auto landscape:my-12 md:h-auto md:my-12 flex flex-col justify-center gap-4`}>
           <MainHeros {...HEROS}></MainHeros>
-          <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} datetimeTitle={DATETIME_TITLE} placeTitle={HOD_PLACE_TEXT_NAME} />
+          <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
         </section>
-        <section className={`hidden md:flex container h-screen flex-col justify-center`}>
-          <MainHeros {...HEROS}></MainHeros>
-        </section>
-        <section className={`hidden md:flex container flex-col mb-12 justify-center`}>
-          <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} datetimeTitle={DATETIME_TITLE} placeTitle={HOD_PLACE_TEXT_NAME} />
-        </section>
-
 
         <section className={`p-2 md:p-3 lg:p-4`} >
           <Gallery images={images.data} />
