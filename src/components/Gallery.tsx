@@ -29,7 +29,7 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
         open: index >= 0,
         close: () => setIndex(-1)
     };
-    if (size.width !== undefined && size.width > 768) {
+    if (size.width !== undefined && size.height !== undefined && size.width > 640) {
         lightboxProps.render = {};
     }
     if (size.width !== undefined && size.height !== undefined && size.height / size.width > 1.414) {
@@ -56,23 +56,23 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
             <Lightbox
                 {...lightboxProps}
             />
-            <div className={`md:hidden grid grid-cols-2 gap-2`}>
+            <div className={`md:hidden landscape:hidden grid grid-cols-2 gap-2`}>
                 {allColumns(2).map((column, columnIndex) => (
                     <div key={columnIndex} className={`flex flex-col gap-2`}>
                         {column.map((image, idx) => (
                             <div key={idx} className={`group shadow-md bg-gray-100 rounded overflow-hidden cursor-pointer`}>
-                                <ImgurComponent.BlurImage onClick={() => setIndex(columnIndex + idx * 2)} image={image} />
+                                <ImgurComponent.BlurImage image={image} onClick={() => setIndex(columnIndex + idx * 2)}  />
                             </div>
                         ))}
                     </div>
                 ))}
             </div>
-            <div className={`hidden md:grid lg:hidden grid-cols-3 gap-3`}>
+            <div className={`hidden md:grid landscape:grid lg:hidden lg:landscape:hidden grid-cols-3 gap-3`}>
                 {allColumns(3).map((column, columnIndex) => (
                     <div key={columnIndex} className={`flex flex-col gap-3`}>
                         {column.map((image, idx) => (
                             <div key={idx} className={`group shadow-md bg-gray-100 rounded overflow-hidden cursor-pointer`}>
-                                <ImgurComponent.BlurImage image={image} />
+                                <ImgurComponent.BlurImage image={image} onClick={() => setIndex(columnIndex + idx * 3)} />
                             </div>
                         ))}
                     </div>
@@ -83,7 +83,7 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
                     <div key={columnIndex} className={`flex flex-col gap-4`}>
                         {column.map((image, idx) => (
                             <div key={idx} className={`group shadow-md bg-gray-100 rounded overflow-hidden cursor-pointer`}>
-                                <ImgurComponent.BlurImage image={image} />
+                                <ImgurComponent.BlurImage image={image} onClick={() => setIndex(columnIndex + idx * 4)} />
                             </div>
                         ))}
                     </div>

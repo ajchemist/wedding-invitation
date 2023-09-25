@@ -13,6 +13,10 @@
   --yarl__thumbnails_thumbnail_active_border_color: hsla(0, 0%, 100%, 0.7);
 }
 
+.yarl__toolbar {
+  --yarl__icon_size: 1.616rem;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -222,7 +226,7 @@
   }
 
   .invite-letter > h1[data-category] {
-    @apply mt-1 text-3xl font-light ;
+    @apply mt-1 text-3xl font-light;
   }
 
   .invite-letter > p {

@@ -40,7 +40,7 @@ interface PlaceProps {
 }
 
 export default async function Home() {
-  const images = await Imgur.fetchAlbumImages({}, 'uLfnMDZ');
+  const images = await Imgur.fetchAlbumImages({}, 'wRqi9Mk');
 
   return (
     <KakaoMapSDKLoadingContextProvider>
