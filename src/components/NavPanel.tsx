@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState, use } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import KakaoTalkSVG from '@/app/KakaoTalk_logo.svg';
+import KakaoTalkSVG from '@/components/KakaoTalk_logo.svg';
 import * as Imgur from '@/integrations/Imgur';
 
 interface Props {

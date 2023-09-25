@@ -1,10 +1,9 @@
 "use client"
 
-import { KAKAO_JS_APP_KEY } from "@/app/fixtures"
 import { KakaoSDK } from "@/integrations/Kakao"
 
-export default function Page() {
+export default function Page({ appkey }: { appkey: string }) {
     return (
-        <KakaoSDK onLoad={() => { window.Kakao.init(KAKAO_JS_APP_KEY) }}/>
+        <KakaoSDK onLoad={() => { window.Kakao.init(appkey) }}/>
     );
 }
