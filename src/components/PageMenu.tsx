@@ -6,14 +6,49 @@ import { UnbalancedTwoStackSVGHamgurger } from '@/components/Hamburger';
 import { NavPanel } from '@/components/NavPanel';
 
 export default function Page() {
-    const [ hamburgerState, setHamburgerState ] = useState(false);
+    const sentinelRef = useRef<HTMLDivElement>(null);
+    const [isSticky, setSticky] = useState<boolean>(false);
+    const [hamburgerState, setHamburgerState] = useState<boolean>(false);
     const toggleHamburger = () => { setHamburgerState(prevState => !prevState) };
 
+    useEffect(() => {
+        if (!sentinelRef.current) return
+
+        const navHeight = sentinelRef.current.getBoundingClientRect().height;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                console.log(entry)
+                if (!entry.isIntersecting) {
+                    setSticky(!entry.isIntersecting)
+                } else {
+                    setSticky(false)
+                }
+            },
+            {
+                root: null,
+                rootMargin: `${navHeight}px`,
+                threshold: 1,
+            }
+        )
+
+        observer.observe(sentinelRef.current);
+
+        return () => {
+            observer.disconnect()
+        }
+    }, [sentinelRef])
+
+
+
     return (
-        <nav aria-label="Global" className={`w-full h-12 flex items-center sticky top-0 z-10`}>
-            <div className={`grow`}></div>
-            <UnbalancedTwoStackSVGHamgurger isOpen={hamburgerState} toggle={toggleHamburger}  />
-            <NavPanel isOpen={hamburgerState} />
-        </nav>
+        <>
+            <div ref={sentinelRef}></div>
+            <nav aria-label="Global" className={`${isSticky ? 'sticky top-0 bg-gray-100 bg-opacity-80 border-b border-gray-300 backdrop-blur-md' : ''} w-full h-12 flex items-center z-10`}>
+                <div className={`grow`}></div>
+                <UnbalancedTwoStackSVGHamgurger isOpen={hamburgerState} toggle={toggleHamburger} />
+                <NavPanel isOpen={hamburgerState} />
+            </nav>
+        </>
     )
 }
