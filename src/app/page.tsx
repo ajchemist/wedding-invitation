@@ -16,6 +16,7 @@ import InviteLetter from '@/components/InviteLetter';
 // import EventInfo from '@/components/EventInfo';
 import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
+import Footer from '@/components/Footer';
 import * as Imgur from '@/integrations/Imgur';
 
 const bebasneue = Bebas_Neue({
@@ -69,15 +70,11 @@ export default async function Home() {
           <Place />
         </section>
 
-        <div id="designer" className="designer">
-          <p className={`${roboto_condensed.className} p-0.5 text-sm mx-auto`}>designed by alchemia in Gwangju, 2023</p>
-          <p className={`${roboto_condensed.className} font-light text-xs mx-auto opacity-70`}>with immense love for the bride.</p>
-        </div>
+        <section className={`w-full`}>
+          <Footer />
+        </section>
       </main>
       <KakaoMapSDKScript jsAppKey={`${KAKAO_JS_APP_KEY}`} />
     </KakaoMapSDKLoadingContextProvider>
   )
-}
-
-function Footer() {
 }
