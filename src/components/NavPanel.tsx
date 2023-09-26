@@ -12,7 +12,7 @@ interface Props {
 
 export const NavPanel = ({ isOpen }: Props) => {
     return (
-        <div className={`z-10 fixed inset-0 bg-gray-100 bg-opacity-80 transform transition-transform duration-500 ease-in-out origin-top ${isOpen ? 'scale-y-100' : 'scale-y-0'} backdrop-blur`}>
+        <div className={`!fixed inset-0 bg-gray-100 bg-opacity-80 transform transition-transform duration-500 ease-in-out origin-top ${isOpen ? 'scale-y-100' : 'scale-y-0'} backdrop-blur`}>
             <ul className="primary-menu m-auto w-96 pt-12 px-12">
                 <li className={`text-2xl font-bold ${isOpen ? 'opacity-90' : 'opacity-0'}`} onClick={() => {
                     window.Kakao.Share.sendCustom({

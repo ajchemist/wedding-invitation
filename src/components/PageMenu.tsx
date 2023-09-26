@@ -10,7 +10,7 @@ export default function Page() {
     const toggleHamburger = () => { setHamburgerState(prevState => !prevState) };
 
     return (
-        <nav aria-label="Global" className={`h-12 flex items-center`}>
+        <nav aria-label="Global" className={`w-full h-12 flex items-center sticky top-0 z-10`}>
             <div className={`grow`}></div>
             <UnbalancedTwoStackSVGHamgurger isOpen={hamburgerState} toggle={toggleHamburger}  />
             <NavPanel isOpen={hamburgerState} />

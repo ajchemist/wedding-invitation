@@ -39,7 +39,6 @@ export default async function Home() {
   return (
     <KakaoMapSDKLoadingContextProvider>
       <KakaoSDKScript appkey={KAKAO_JS_APP_KEY} />
-      <PageMenu />
       <main className="flex min-h-screen flex-col items-center justify-between">
         {/* <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
           <Image src={Imgur.imageLink("GWMYmxD")} alt="초대장 인트로 웨딩포토P" fill={true} sizes="123vw" style={{ objectFit: 'none', objectPosition: 'top' }} />
@@ -47,6 +46,7 @@ export default async function Home() {
         <section className="hidden portrait:hidden md:flex w-full min-h-screen items-start">
           <Image src={Imgur.imageLink("AiNvEJR")} alt="초대장 인트로 웨딩포토L" fill={true} style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
         </section> */}
+        <PageMenu />
 
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         </div>
@@ -65,7 +65,7 @@ export default async function Home() {
           <Calendar dday={{ year: 2023, month: 11, day: 11 }} />
         </section>
 
-        <section className="max-w-screen-xl w-11/12">
+        <section className="w-full max-w-screen-xl">
           <Place />
         </section>
 
