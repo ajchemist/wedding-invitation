@@ -5,7 +5,7 @@ import dayjs, { Dayjs } from 'dayjs';
 // @ts-ignore
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
-import { noto_serif_kr, cafe24_danjunghae, cafe24_dangdanghae, cafe24_simplehae } from '@/components/fonts';
+import { noto_serif_kr } from '@/components/fonts';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);

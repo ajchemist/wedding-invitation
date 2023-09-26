@@ -23,6 +23,11 @@ declare module "types/app/component" {
         address?: string;
         contact?: string;
     }
+
+    export interface NaviButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+        name: string;
+        coordinate: { lat: number, lng: number };        
+    }
 }
 
 declare module "types/Kakao" {
@@ -40,7 +45,6 @@ declare module "types/Kakao" {
         libraries?: KakaoMapLibraries,
     }
 }
-
 
 interface SVGElement extends Element {
     beginElement(): SVGElement;
