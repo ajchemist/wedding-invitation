@@ -92,7 +92,10 @@ function HallTextComponent({ title, address, contact }: PlaceProps) {
 function NavigationInfo({ name, coordinate }: { name: string, coordinate: Coordinate }) {
     return (
         <section className={`w-full p-9 bg-emerald-100 tracking-tighter space-y-2 ${cafe24_ssurroundair.className}`}>
-            <h1 className={`text-lg opacity-90 flex items-center justify-center text-slate-500 font-light`}><span className={`material-symbols text-2xl mr-1`}>assistant_navigation</span><span className={`whitespace-nowrap`}>내비게이션</span></h1>
+            <h1 className={`text-lg opacity-90 flex items-center justify-center text-slate-500 font-light`}>
+                <span className={`material-symbols text-2xl -ml-3 mr-1`}>assistant_navigation</span>
+                <span className={``}>내비게이션</span>
+                </h1>
             <div className={`flex justify-center gap-2 text-zinc-400 ${noto_sans_kr.className}`}>
                 <div className={`group`}>
                     <KakaoNaviButton name={HOD_PLACE_TITLE} coordinate={HOD_PLACE_COORD} />
