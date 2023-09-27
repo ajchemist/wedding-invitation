@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className={`w-full bg-[#1A3C34] text-[#fafafa]`}>
-            <div className={`px-4 py-8 text-[#8D9C98]`}>
+            <div className={`px-4 py-8 md:mx-12 text-[#8D9C98]`}>
                 <p className={`text-xs`}>© 2023 alchemia, Inc. All Rights Reserved.</p>
                 <hr className={`mt-4 border-top border-[#8D9C98]`} color="#8D9C98"></hr>
                 <section className={`pt-4`}>
