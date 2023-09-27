@@ -48,16 +48,18 @@ const HOD_KakaoMapCallback = (map: object) => {
 export default function Place() {
     return (
         <>
-            <div className="md:hidden flex flex-col">
+            <div className="md:hidden landscape:hidden flex flex-col">
                 <section className={`order-first`}><div className="w-full h-80"><HOD_KakaoMap /></div>
                 </section>
-                <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} contact={HOD_PLACE_CONTACT} />
+                <div className={`my-8`}>
+                    <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} contact={HOD_PLACE_CONTACT} />
+                </div>
                 <NavigationInfo name="하우스 오브 드메르" coordinate={HOD_PLACE_COORD} />
             </div>
-            <div className="hidden md:flex space-x-3">
-                <section className="grow !ml-[4%] py-5 lg:p-5"><div className="w-full h-80"><HOD_KakaoMap /></div>
+            <div className="hidden md:flex landscape:flex space-x-8">
+                <section className="grow lg:px-5"><div className="w-full h-80"><HOD_KakaoMap /></div>
                 </section>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-4 pr-8">
                     <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} contact={HOD_PLACE_CONTACT} />
                     <NavigationInfo name="하우스 오브 드메르" coordinate={HOD_PLACE_COORD} />
                 </div>
@@ -74,7 +76,7 @@ export function HOD_KakaoMap() {
 
 function HallTextComponent({ title, address, contact }: PlaceProps) {
     return (
-        <section className="px-5 py-8 text-center md:text-left space-y-1">
+        <section className="text-center md:text-left space-y-1">
             <h1 className={`${bebasneue.className} text-4xl`}>House of Demer</h1>
             <h1 className={`${noto_serif_kr.className} text-2xl tracking-tighter`}>{title}</h1>
             <h2 className={`${noto_serif_kr.className} font-light text-xl tracking-tighter`}>{address}</h2>
@@ -94,8 +96,8 @@ function NavigationInfo({ name, coordinate }: { name: string, coordinate: Coordi
         <section className={`w-full p-9 bg-emerald-100 tracking-tighter space-y-2 ${cafe24_ssurroundair.className}`}>
             <h1 className={`text-lg opacity-90 flex items-center justify-center text-slate-500 font-light`}>
                 <span className={`material-symbols text-2xl -ml-3 mr-1`}>assistant_navigation</span>
-                <span className={``}>내비게이션</span>
-                </h1>
+                <span className={`min-w-0 whitespace-nowrap`}>내비게이션</span>
+            </h1>
             <div className={`flex justify-center gap-2 text-zinc-400 ${noto_sans_kr.className}`}>
                 <div className={`group`}>
                     <KakaoNaviButton name={HOD_PLACE_TITLE} coordinate={HOD_PLACE_COORD} />

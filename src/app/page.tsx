@@ -67,6 +67,7 @@ export default async function Home() {
         </section>
 
         <section className="w-full max-w-screen-xl">
+        <section id="location" className="w-full max-w-screen-xl mt-8">
           <Place />
         </section>
 
