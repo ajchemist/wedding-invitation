@@ -35,7 +35,7 @@ export const Calendar = ({ dday }: CalendarProps) => {
     const startDay = currentMonth.startOf('month').day();
 
     return (
-        <div className={`${noto_serif_kr.className} p-4 my-4 max-w-md`}>
+        <div className={`${noto_serif_kr.className} px-4 max-w-md`}>
             <div className="mb-7 text-center opacity-90">
                 <h2 className={`tracking-tighter font-medium text-xl`}>{currentMonth.format('MM월')}</h2>
             </div>

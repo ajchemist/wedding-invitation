@@ -22,7 +22,7 @@ function Nav() {
         <nav aria-label="Global" className={`h-12 flex items-center`}>
             <div className={`grow`}></div>
             <UnbalancedTwoStackSVGHamgurger isOpen={hamburgerState} toggle={toggleHamburger}  />
-            <NavPanel isOpen={hamburgerState} />
+            <NavPanel isOpen={hamburgerState} setIsOpen={setHamburgerState} items={[]} />
         </nav>
     )
 }

@@ -47,7 +47,30 @@ export default async function Home() {
         <section className="hidden portrait:hidden md:flex w-full min-h-screen items-start">
           <Image src={Imgur.imageLink("AiNvEJR")} alt="초대장 인트로 웨딩포토L" fill={true} style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
         </section> */}
-        <PageMenu />
+        <PageMenu navPanelProps={{
+          items: [
+            {
+              children: "초대의 글",
+              href: "#heros"
+            },
+            {
+              children: "갤러리",
+              href: "#gallery"
+            },
+            {
+              children: "캘린더",
+              href: "#calendar"
+            },
+            {
+              children: "오시는 길"
+              , href: "#location"
+            },
+            {
+              children: "마음 전하실 곳"
+              , href: "#banks"
+            }
+          ]
+        }} />
 
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         </div>
@@ -57,17 +80,19 @@ export default async function Home() {
           <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
         </section>
 
-        <section className={`p-2 md:p-3 lg:p-4`} >
+        <section id="gallery" className={`pt-16 p-2 md:p-3 lg:p-4`} >
           <Gallery images={images.data} />
           <div className={`my-12`}></div>
         </section>
 
-        <section className={`container flex justify-center`}>
+        <section id="calendar" className={`pt-16 container flex justify-center`}>
           <Calendar dday={{ year: 2023, month: 11, day: 11 }} />
         </section>
 
-        <section className="w-full max-w-screen-xl">
-        <section id="location" className="w-full max-w-screen-xl mt-8">
+        <section id="banks">
+        </section>
+
+        <section id="location" className="pt-16 w-full max-w-screen-xl">
           <Place />
         </section>
 
