@@ -38,7 +38,7 @@ export const NavPanel = ({ isOpen, setIsOpen, items, ...props }: NavPanelProps) 
                         {item.children}
                     </ListItem>
                 ))}
-                <div className={`absolute bottom-16 left-12 flex`}>
+                <div className={`absolute bottom-32 left-12 flex`}>
                     <Image
                         className={`inline-block w-9 h-9`}
                         onClick={() => {
