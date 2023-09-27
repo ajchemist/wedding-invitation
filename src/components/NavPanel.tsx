@@ -16,15 +16,15 @@ export interface NavPanelProps extends HTMLAttributes<HTMLDivElement> {
 interface ListItemProps extends HTMLAttributes<HTMLLIElement> {
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    href: string | object;
+    href: string;
 }
 
 const ListItem = ({ isOpen, setIsOpen, href, children, ...props }: ListItemProps) => {
     return (
         <li className={`group text-2xl font-bold ${isOpen ? 'opacity-90' : 'opacity-0'}`} {...props}>
-            <Link href={href} onClick={() => { setIsOpen(false) }}>
+            <a href={href} onClick={() => { setIsOpen(false) }}>
                 {children}
-            </Link>
+            </a>
         </li>
     );
 }
