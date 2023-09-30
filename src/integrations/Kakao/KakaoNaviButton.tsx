@@ -8,10 +8,10 @@ export default function KakaoNaviButton({ name, coordinate, ...props }: NaviButt
     return (
         <button className={`w-14 h-14`} onClick={() => {
             window.Kakao.Navi.share({
-                name: name,
-                x: lat,
-                y: lng,
-                coordType: 'wgs84'
+                name,
+                x: lng,
+                y: lat,
+                coordType: 'wgs84',
             });
         }} {...props}>
             <Image src={KakaoNaviSvg} alt="KakaoNavi" width={120} height={120} />
