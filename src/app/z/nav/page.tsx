@@ -4,7 +4,7 @@ import * as Icon from '@alchemiakr/web-components/icon';
 import { useRef, useEffect, useState, forwardRef } from "react";
 import { ZBlockContainer, ZContainer } from '../layout';
 import { UnbalancedTwoStackSVGHamgurger } from '@/components/Hamburger';
-import { NavPanel } from '@/components/NavPanel';
+import NavPanel from '@/components/NavPanel';
 
 export default function Page() {
     return (

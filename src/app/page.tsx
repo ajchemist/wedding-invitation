@@ -9,6 +9,8 @@ import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '
 import KakaoSDKScript from '@/components/KakaoSDKScript';
 import { useWindowSize } from '@/components/Responsive';
 import Place from '@/app/components/Place';
+import KakaoNaviButton from '@/integrations/Kakao/KakaoNaviButton';
+import TmapNaviButton from '@/integrations/Tmap/TmapNaviButton';
 import { Calendar } from '@/components/Calendar';
 import { noto_serif_kr, cafe24_dangdanghae } from '@/components/fonts';
 import MainHeros from '@/components/MainHeros';
@@ -18,6 +20,7 @@ import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
 import Footer from '@/components/Footer';
 import * as Imgur from '@/integrations/Imgur';
+import NavPanelBottom from '@/app/components/NavPanelBottom';
 
 const bebasneue = Bebas_Neue({
   subsets: ["latin"],
@@ -70,7 +73,8 @@ export default async function Home() {
                 children: "마음 전하실 곳"
                 , href: "#banks"
               }
-            ]
+            ],
+            bottomComponent: ( <NavPanelBottom /> )
           }} />
 
           <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">

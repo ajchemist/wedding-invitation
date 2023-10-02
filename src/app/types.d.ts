@@ -24,7 +24,7 @@ declare module "types/app/component" {
         contact?: string;
     }
 
-    export interface NaviButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    export interface NaviButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
         name: string;
         coordinate: { lat: number, lng: number };        
     }

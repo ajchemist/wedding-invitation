@@ -6,11 +6,13 @@ import Image from "next/image";
 import * as Imgur from '@/integrations/Imgur';
 import KakaoTalkSVG from '@/components/KakaoTalk_logo.svg';
 import { noto_sans_kr } from "@/components/fonts";
+import KakaoNaviButton from "@/integrations/Kakao/KakaoNaviButton";
 
 export interface NavPanelProps extends HTMLAttributes<HTMLDivElement> {
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     items: Omit<ListItemProps, 'isOpen' | 'setIsOpen'>[];
+    bottomComponent?: React.ReactNode;
 }
 
 interface ListItemProps extends HTMLAttributes<HTMLLIElement> {
@@ -29,7 +31,7 @@ const ListItem = ({ isOpen, setIsOpen, href, children, ...props }: ListItemProps
     );
 }
 
-export const NavPanel = ({ isOpen, setIsOpen, items, ...props }: NavPanelProps) => {
+export default function NavPanel ({ isOpen, setIsOpen, items, bottomComponent, ...props }: NavPanelProps) {
     return (
         <div className={`!fixed h-screen inset-0 bg-gray-100/95 transform transition-transform duration-300 ease-in-out origin-top ${isOpen ? 'scale-y-100' : 'scale-y-0'} backdrop-blur-md`} {...props}>
             <ul className={`${noto_sans_kr.className} tracking-tighter w-full pt-16 px-12 space-y-1.5`}>
@@ -38,22 +40,8 @@ export const NavPanel = ({ isOpen, setIsOpen, items, ...props }: NavPanelProps) 
                         {item.children}
                     </ListItem>
                 ))}
-                <div className={`absolute bottom-32 left-12 flex`}>
-                    <Image
-                        className={`inline-block w-9 h-9`}
-                        onClick={() => {
-                            window.Kakao.Share.sendCustom({
-                                templateId: 98561,
-                                templateArgs: {
-                                    THU: Imgur.imageLink("44NZJXD", "h", ".jpg"),
-                                }
-                            })
-                        }}
-                        src={KakaoTalkSVG}
-                        alt="KakaoTalk"
-                        width={80}
-                        height={80}
-                    />
+                <div className={`absolute bottom-32 landscape:bottom-20 left-12 flex`}>
+                    {bottomComponent}
                 </div>
             </ul>
         </div>

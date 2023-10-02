@@ -3,7 +3,7 @@
 import * as Icon from '@alchemiakr/web-components/icon';
 import { useRef, useEffect, useState, forwardRef } from "react";
 import { UnbalancedTwoStackSVGHamgurger } from '@/components/Hamburger';
-import { NavPanel, NavPanelProps } from '@/components/NavPanel';
+import NavPanel, { NavPanelProps } from '@/components/NavPanel';
 
 export default function Page({ navPanelProps }: { navPanelProps: Omit<NavPanelProps, 'isOpen' | 'setIsOpen'> }) {
     const sentinelRef = useRef<HTMLDivElement>(null);
@@ -38,8 +38,6 @@ export default function Page({ navPanelProps }: { navPanelProps: Omit<NavPanelPr
             observer.disconnect()
         }
     }, [sentinelRef])
-
-
 
     return (
         <>
