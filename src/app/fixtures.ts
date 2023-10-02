@@ -1,3 +1,4 @@
+import { Heros } from 'types/app';
 import * as Icon from '@alchemiakr/web-components/icon';
 import * as Imgur from '@/integrations/Imgur';
 
@@ -5,7 +6,7 @@ export const HOD_PLACE_TITLE = '하우스오브드메르';
 export const HOD_PLACE_NAVI_TITLE = '하우스오브드메르';
 export const KAKAO_JS_APP_KEY = 'a74750f9bbd999d047d1e16479e4ac33';
 export const DATETIME_TITLE = '11월 11일 토요일 오전 11시';
-export const HOD_PLACE_TEXT_NAME = '하우스 오브 드메르 1F 지젤홀';
+export const HOD_PLACE_TEXT_NAME = '하우스오브드메르 1F 지젤홀';
 export const HOD_PLACE_ADDRESS = '광주 광산구 임방울대로 551';
 export const HOD_PLACE_ADDRESS_LEGACY = '도천동 147-26';
 export const HOD_PLACE_ZIP_CODE = '62244';
@@ -24,7 +25,7 @@ export const INVITE_PARAGRAPH = [
     '축복을 구합니다.'
 ]
 
-export const HEROS = {
+export const HEROS: Heros  = {
     groom: { name: '석진', fullName: '서석진', realName: '서석진', relationship: '子', bankName: '토스뱅크', bankAccount: '1000-5157-5332', profileImage: Imgur.imageLink("plaJPTO") },
     bride: { name: '민하', fullName: '송민하', realName: '송민하', relationship: '女', bankName: '토스뱅크', bankAccount: '1000-5161-1957', profileImage: Imgur.imageLink("JzzIVoJ") },
     groomFather: { fullName: '서기문', realName: '서기문', bankName: '농협', bankAccount: '601188-52-057761' },

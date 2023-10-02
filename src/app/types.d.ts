@@ -1,10 +1,14 @@
 declare module "types/app" {
+    export type BankName = '광주은행' | '토스뱅크' | '농협';
+
     export interface Hero {
         name?: string;
         fullName: string;
-        bank?: string;
         relationship?: string;
         profileImage?: string;
+        realName: string;
+        bankName: BankName;
+        bankAccount: string;
     }
 
     export interface Heros {

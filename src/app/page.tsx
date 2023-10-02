@@ -18,6 +18,7 @@ import InviteLetter from '@/components/InviteLetter';
 // import EventInfo from '@/components/EventInfo';
 import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
+import Banks from '@/components/Banks';
 import Footer from '@/components/Footer';
 import * as Imgur from '@/integrations/Imgur';
 import InviteLetterFooter from '@/app/components/InviteLetterFooter';
@@ -96,7 +97,8 @@ export default async function Home() {
             <Calendar dday={{ year: 2023, month: 11, day: 11 }} />
           </section>
 
-          <section id="banks">
+          <section id="banks" className={`w-full mt-12 pt-16 p-10 px-6 bg-gradient-to-b from-slate-50 to-slate-100`}>
+            <Banks banks={[ HEROS.groomFather, HEROS.groomMother, HEROS.groom, HEROS.brideFather, HEROS.brideMother, HEROS.bride ]} />
           </section>
 
           <section id="location" className="pt-20 landscape:pb-20 w-full max-w-screen-xl bg-gradient-to-b from-slate-100/80 to-slate-50">

@@ -254,6 +254,6 @@
 
 @layer components {
   button.show-account-detail {
-    @apply font-light p-1 border border-black/70 rounded
+    @apply text-sm p-1 border text-black/70 border-black/70 rounded
   }
 }
