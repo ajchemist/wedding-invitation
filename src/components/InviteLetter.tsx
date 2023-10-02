@@ -20,7 +20,6 @@ export default function InviteLetter({ lines, heros }: InviteLetterProps) {
             </p>
             <h2><span className={`hero-parent-name`}>{groomFather.fullName} · {groomMother.fullName}</span>의<span className={`${yuji_boku.className} hero-relationship`}>{groom.relationship}</span><span className={`main-hero-name`}>{groom.name}</span></h2>
             <h2><span className={`hero-parent-name`}>{brideFather.fullName} · {brideMother.fullName}</span>의<span className={`${yuji_boku.className} hero-relationship`}>{bride.relationship}</span><span className={`main-hero-name`}>{bride.name}</span></h2>
-            <div className={`my-10`}></div>
         </div>
     )
 }

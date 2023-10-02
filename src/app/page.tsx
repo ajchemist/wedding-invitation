@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
-import { DATETIME_TITLE, HEROS, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
+import { DATETIME_TITLE, HEROS, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_TITLE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
 import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '@/integrations/Kakao';
 import KakaoSDKScript from '@/components/KakaoSDKScript';
 import { useWindowSize } from '@/components/Responsive';
@@ -20,6 +20,7 @@ import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
 import Footer from '@/components/Footer';
 import * as Imgur from '@/integrations/Imgur';
+import InviteLetterFooter from '@/app/components/InviteLetterFooter';
 import NavPanelBottom from '@/app/components/NavPanelBottom';
 
 const bebasneue = Bebas_Neue({
@@ -80,9 +81,10 @@ export default async function Home() {
           <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           </div>
 
-          <section id="heros" className={`container h-screen landscape:h-auto landscape:my-12 md:h-auto md:my-12 flex flex-col justify-center gap-4`}>
+          <section id="heros" className={`container pt-20 pb-10 landscape:h-auto landscape:my-12 md:h-auto md:my-12 flex flex-col justify-center gap-12`}>
             <MainHeros {...HEROS}></MainHeros>
             <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
+            <InviteLetterFooter />
           </section>
 
           <section id="gallery" className={`pt-16 p-2 md:p-3 lg:p-4`} >
