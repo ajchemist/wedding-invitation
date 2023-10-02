@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image"
-import KakaoNaviSvg from "../Kakao_Navi.svg";
+import KakaoNaviSvg from "./Kakao_Navi.svg";
 import { NaviButtonProps } from "types/app/component";
 
 export default function KakaoNaviButton({ name, coordinate, ...props }: NaviButtonProps) {

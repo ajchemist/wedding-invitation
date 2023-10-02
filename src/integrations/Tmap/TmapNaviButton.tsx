@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image"
-import TmapNaviSvg from "../Tmap_Navi.svg";
+import TmapNaviSvg from "./Tmap_Navi.svg";
 import { NaviButtonProps } from "types/app/component";
 import { TmapNaviUrl } from "../Tmap";
 
