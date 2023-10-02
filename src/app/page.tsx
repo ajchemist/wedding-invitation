@@ -87,19 +87,19 @@ export default async function Home() {
             <InviteLetterFooter />
           </section>
 
-          <section id="gallery" className={`pt-16 p-2 md:p-3 lg:p-4`} >
+          <section id="gallery" className={`pt-20 p-2 md:p-3 lg:p-4`} >
             <Gallery images={images.data} />
             <div className={`my-12`}></div>
           </section>
 
-          <section id="calendar" className={`pt-16 container flex justify-center`}>
+          <section id="calendar" className={`pt-20 container flex justify-center`}>
             <Calendar dday={{ year: 2023, month: 11, day: 11 }} />
           </section>
 
           <section id="banks">
           </section>
 
-          <section id="location" className="pt-16 w-full max-w-screen-xl">
+          <section id="location" className="pt-20 landscape:pb-20 w-full max-w-screen-xl bg-gradient-to-b from-slate-100/80 to-slate-50">
             <Place />
           </section>
 

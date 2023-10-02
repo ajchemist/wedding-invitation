@@ -48,6 +48,8 @@ const HOD_KakaoMapCallback = (map: object) => {
 export default function Place() {
     return (
         <>
+            <h1 className={`${noto_serif_kr.className} text-2xl m-auto text-center`}>오시는 길</h1>
+            <div className={`my-10`}></div>
             <div className="md:hidden landscape:hidden flex flex-col">
                 <section className={`order-first`}><div className="w-full h-80"><HOD_KakaoMap /></div>
                 </section>
@@ -59,7 +61,7 @@ export default function Place() {
             <div className="hidden md:flex landscape:flex space-x-8">
                 <section className="grow lg:px-5"><div className="w-full h-80"><HOD_KakaoMap /></div>
                 </section>
-                <div className="flex flex-col gap-4 pr-8">
+                <div className="flex flex-col gap-4">
                     <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} contact={HOD_PLACE_CONTACT} />
                     <NavigationInfo name="하우스 오브 드메르" coordinate={HOD_PLACE_COORD} />
                 </div>
@@ -76,7 +78,7 @@ export function HOD_KakaoMap() {
 
 function HallTextComponent({ title, address, contact }: PlaceProps) {
     return (
-        <section className="text-center md:text-left space-y-1">
+        <section className="text-center md:text-left landscape:text-left md:pr-10 landscape:pr-10 space-y-1">
             <h1 className={`${bebasneue.className} text-4xl`}>House of Demer</h1>
             <h1 className={`${noto_serif_kr.className} text-2xl tracking-tighter`}>{title}</h1>
             <h2 className={`${noto_serif_kr.className} font-light text-xl tracking-tighter`}>{address}</h2>
@@ -93,7 +95,7 @@ function HallTextComponent({ title, address, contact }: PlaceProps) {
 
 function NavigationInfo({ name, coordinate }: { name: string, coordinate: Coordinate }) {
     return (
-        <section className={`w-full p-9 bg-emerald-100 tracking-tighter space-y-2 ${cafe24_ssurroundair.className}`}>
+        <section className={`w-full p-9 landscape:p-6 bg-emerald-100 tracking-tighter space-y-2 ${cafe24_ssurroundair.className}`}>
             <h1 className={`text-lg opacity-90 flex items-center justify-center text-slate-500 font-light`}>
                 <span className={`material-symbols text-2xl -ml-3 mr-1`}>assistant_navigation</span>
                 <span className={`min-w-0 whitespace-nowrap`}>내비게이션</span>
