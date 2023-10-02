@@ -28,29 +28,34 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onCopy, accountDe
             <div className="bg-white p-6 rounded-lg w-96">
                 <h2 className="text-lg font-semibold mb-4">계좌 정보</h2>
                 {accountDetails.map((detail, idx) => (
-                    <div key={idx} className="flex flex-wrap items-center gap-1.5">
-                        <div className={'relative w-6 h-6 rounded-md overflow-hidden'}>
-                            <Image
-                                src={bankIconMap[detail.bankName]}
-                                alt={detail.bankName}
-                                fill={true}
-                                style={{ objectFit: 'contain' }}
-                                sizes={``}
-                            />
-                        </div>
-                        <p className={`basis-10/12`}>{detail.bankName}</p>
-                        <p className={`font-light shrink-0`}>{detail.bankAccount}</p>
-                        <p className={`shrink-0`}>{detail.realName}</p>
-                        <button
-                            className={`bg-gray-200 p-1 rounded text-xs inline-flex items-center shrink-0`}
-                            onClick={() => onCopy(`${detail.bankName} ${detail.bankAccount}`.replace(/-/g, ''))}
-                        >
-                            <span className={`material-symbols p-0.5`}>content_copy</span>
-                            복사
-                        </button>
+                    <div key={idx} className={`w-full`}>
+                        <h3 className={`w-full`}>
+                            <span className={'inline-block align-text-bottom relative w-6 h-6 rounded-md overflow-hidden'}>
+                                <Image
+                                    src={bankIconMap[detail.bankName]}
+                                    alt={detail.bankName}
+                                    fill={true}
+                                    style={{ objectFit: 'contain' }}
+                                    sizes={``}
+                                />
+                            </span>
+                            <span className={`ml-1.5`}>{detail.bankName}</span>
+                        </h3>
+                        <p className={`w-full mt-0.5 space-x-1.5`}>
+                            <span className={`font-light`}>{detail.bankAccount}</span>
+                            <span className={``}>{detail.realName}</span>
+                            <button
+                                className={`bg-gray-200 py-1 px-1.5 rounded text-xs inline-block align-bottom min-w-[3.5rem]`}
+                                onClick={() => onCopy(`${detail.bankName} ${detail.bankAccount}`.replace(/-/g, ''))}
+                            >
+                                <span className={`material-symbols mr-1 inline-block align-text-bottom`}>content_copy</span>
+                                복사
+                            </button>
+
+                        </p>
                     </div>
                 ))}
-                <button onClick={onClose} className="min-w-max tracking-tighter text-right block mt-4 underline">
+                <button onClick={onClose} className="min-w-max tracking-tighter text-right block mt-4 underline whitespace-nowrap">
                     닫기
                 </button>
             </div>
