@@ -4,6 +4,7 @@ import * as Icon from '@alchemiakr/web-components/icon';
 import { useRef, useEffect, useState, forwardRef } from "react";
 import { UnbalancedTwoStackSVGHamgurger } from '@/components/Hamburger';
 import NavPanel, { NavPanelProps } from '@/components/NavPanel';
+import AudioPlayer from '@/components/AudioPlayer';
 
 export default function Page({ navPanelProps }: { navPanelProps: Omit<NavPanelProps, 'isOpen' | 'setIsOpen'> }) {
     const sentinelRef = useRef<HTMLDivElement>(null);
@@ -44,6 +45,10 @@ export default function Page({ navPanelProps }: { navPanelProps: Omit<NavPanelPr
             <div ref={sentinelRef}></div>
             <nav aria-label="Global" className={`${isSticky ? 'sticky top-0 bg-gray-100 bg-opacity-80 border-b border-gray-300 backdrop-blur-md' : ''} w-full h-12 flex items-center z-10`}>
                 <div className={`grow`}></div>
+                <div className={`-mt-1 w-[44px] h-[44px] flex items-center`}>
+                    <AudioPlayer />
+                </div>
+
                 <UnbalancedTwoStackSVGHamgurger isOpen={hamburgerState} toggle={toggleHamburger} />
                 <NavPanel isOpen={hamburgerState} setIsOpen={setHamburgerState} {...navPanelProps} />
             </nav>
