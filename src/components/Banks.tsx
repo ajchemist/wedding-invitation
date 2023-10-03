@@ -22,7 +22,7 @@ export const Banks: React.FC<{ banks: AccountDetail[] }> = ({ banks }) => {
     };
 
     return (
-        <>
+        <div className={`m-auto max-w-md`}>
             <h1 className={`${noto_serif_kr.className} text-2xl mt-2 m-auto text-center`}>마음 전하실 곳</h1>
             <h2 className={`${noto_serif_kr.className} text-base mt-2 m-auto text-center`}>(계좌번호)</h2>
             <div className={`${noto_serif_kr.className} py-8 grid grid-cols-3 gap-4 max-w-screen-sm m-auto`}>
@@ -40,7 +40,7 @@ export const Banks: React.FC<{ banks: AccountDetail[] }> = ({ banks }) => {
                 accountDetails={accountDetails}
             />
             <Toast message={toastMessage || ''} isVisible={!!toastMessage} />
-        </>
+        </div>
     )
 }
 

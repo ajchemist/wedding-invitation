@@ -59,9 +59,10 @@ export default function Place() {
                 <NavigationInfo name="하우스 오브 드메르" coordinate={HOD_PLACE_COORD} />
             </div>
             <div className="hidden md:flex landscape:flex space-x-8">
-                <section className="grow lg:px-5"><div className="w-full h-80"><HOD_KakaoMap /></div>
+                <section className="grow lg:pl-6 xl:pl-12 ">
+                    <div className="w-full h-80"><HOD_KakaoMap /></div>
                 </section>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 lg:pr-6 xl:pr-12">
                     <HallTextComponent title={HOD_PLACE_TEXT_NAME} address={HOD_PLACE_ADDRESS} contact={HOD_PLACE_CONTACT} />
                     <NavigationInfo name="하우스 오브 드메르" coordinate={HOD_PLACE_COORD} />
                 </div>

@@ -101,7 +101,7 @@ export default async function Home() {
             <Banks banks={[ HEROS.groomFather, HEROS.groomMother, HEROS.groom, HEROS.brideFather, HEROS.brideMother, HEROS.bride ]} />
           </section>
 
-          <section id="location" className="pt-20 landscape:pb-20 w-full max-w-screen-xl bg-gradient-to-b from-slate-100/80 to-slate-50">
+          <section id="location" className={`pt-20 landscape:pb-20 w-full bg-gradient-to-b from-slate-100/80 to-slate-50`}>
             <Place />
           </section>
 
