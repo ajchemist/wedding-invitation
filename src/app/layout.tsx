@@ -1,5 +1,5 @@
 import '@/app/globals.css'
-import type { Metadata } from 'next'
+import { Metadata } from 'next'
 import Head from 'next/head';
 import Script from 'next/script';
 import { Inter } from 'next/font/google'
@@ -17,9 +17,16 @@ const materialSymbols = localFont({
   weight: '100 400 700',
 });
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: '석진 & 민하 결혼합니다',
   description: '🗓️날짜: 11월 11일 토요일 오전 11시 | 📍장소: 하우스 오브 드메르 1F 지젤홀',
+  openGraph: {
+    title: '석진 & 민하 결혼합니다',
+    description: '🗓️날짜: 11월 11일 토요일 오전 11시 | 📍장소: 하우스 오브 드메르 1F 지젤홀',
+    images: [
+      { url: 'https://i.imgur.com/5ZDx9nD.jpg', width: 630, height: 330 }
+    ]
+  }
 };
 
 declare global {

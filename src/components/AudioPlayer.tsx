@@ -20,6 +20,7 @@ export default function AudioPlayer() {
     }
 
     useEffect(() => {
+        // 'scroll', 'wheel', 'mousemove' 의도된 유저 인터랙션으로 간주하지 않음
         const handleFirstInteraction = () => {
             if (audioRef.current == null) return;
 
@@ -28,7 +29,6 @@ export default function AudioPlayer() {
                 // Remove event listeners after successful play
                 window.removeEventListener('click', handleFirstInteraction);
                 window.removeEventListener('keydown', handleFirstInteraction);
-                window.removeEventListener('mousemove', handleFirstInteraction);
                 window.removeEventListener('touchstart', handleFirstInteraction);
             }).catch((error) => {
                 console.error("Audio play failed:", error);
@@ -37,14 +37,12 @@ export default function AudioPlayer() {
 
         window.addEventListener('click', handleFirstInteraction);
         window.addEventListener('keydown', handleFirstInteraction);
-        window.addEventListener('mousemove', handleFirstInteraction);
         window.addEventListener('touchstart', handleFirstInteraction);
 
         return () => {
             // Cleanup event listeners
             window.removeEventListener('click', handleFirstInteraction);
             window.removeEventListener('keydown', handleFirstInteraction);
-            window.removeEventListener('mousemove', handleFirstInteraction);
             window.removeEventListener('touchstart', handleFirstInteraction);
         };
     }, []);
