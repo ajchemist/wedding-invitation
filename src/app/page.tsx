@@ -60,9 +60,12 @@ export default async function Home() {
                 artist: DOCUMENT_DESCRIPTION_SHORT,
                 album: '결혼식 초대장',
                 artwork: [
-                  { src: '/artwork-384.jpg', sizes: '384x384', type: 'image/jpeg'},
-                  { src: '/apple-icon.jpg', sizes: '180x180', type: 'image/jpeg'},
-                  { src: '/artwork-60.jpg', sizes: '60x60', type: 'image/jpeg'},
+                  { src: 'https://i.imgur.com/i0zWcM5.png', sizes: '96x96', type: 'image/png' },
+                  { src: 'https://i.imgur.com/0O9GDaD.png', sizes: '128x128', type: 'image/png' },
+                  { src: 'https://i.imgur.com/BttPrgB.png', sizes: '384x384', type: 'image/png' },
+                  // { src: '/artwork-384.jpg', sizes: '384x384', type: 'image/jpeg'},
+                  // { src: '/apple-icon.jpg', sizes: '180x180', type: 'image/jpeg'},
+                  // { src: '/artwork-60.jpg', sizes: '60x60', type: 'image/jpeg'},
                   // multi artwork break in ios
                 ]
               }
