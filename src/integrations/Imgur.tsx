@@ -33,6 +33,7 @@ export const client = async (url: string, params: Params = {}) => {
 
     let opts: RequestInit = {
         method: params.params ? 'POST' : 'GET',
+        cache: 'no-store',
         ...params,
         headers: {
             ...headers,

@@ -188,7 +188,7 @@
   }
 
   .hero-profile > .next-image-container {
-    @apply w-40 h-40 relative;
+    @apply w-36 h-36 relative;
   }
 
   .hero-profile > .next-image-container > img {
