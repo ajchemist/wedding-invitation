@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
+import { Bebas_Neue, Dongle, Roboto_Condensed, Rochester, Monsieur_La_Doulaise, Nanum_Pen_Script } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
 import { DATETIME_TITLE, DOCUMENT_DESCRIPTION_SHORT, DOCUMENT_TITLE, HEROS, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_TITLE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
@@ -40,6 +40,21 @@ const roboto_condensed = Roboto_Condensed({
   subsets: ["latin"],
   weight: ["300", "400"]
 });
+
+const rochester = Rochester({
+  subsets: ["latin"],
+  weight: ["400"]
+});
+
+const monsieur_la_doulaise = Monsieur_La_Doulaise({
+  subsets: ["latin"],
+  weight: ["400"]
+});
+
+const nanum_pen_script = Nanum_Pen_Script({
+  subsets: ["latin"],
+  weight: ["400"]
+})
 
 export default async function Home() {
   const images = await Imgur.fetchAlbumImages({}, 'wRqi9Mk');
@@ -97,6 +112,19 @@ export default async function Home() {
               ],
               bottomComponent: (<NavPanelBottom />)
             }} />
+
+          <div className={`h-screen -mb-8 relative landscape:hidden`}>
+            <div className={`w-full py-12 px-8 m-auto`}>
+              <Image
+                src={Imgur.imageLink("5bvjK6H")}
+                alt={`인트로 웨딩포토(P)`}
+                width={800}
+                height={1066}
+              />
+            </div>
+            <h1 className={`px-4 mt-4 ${monsieur_la_doulaise.className} text-5xl`}>Wedding Invitation</h1>
+            <h2 className={`px-8 mt-2.5 text-3xl text-right ${nanum_pen_script.className}`}>석진 & 민하 결혼합니다.</h2>
+          </div>
 
           <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           </div>
