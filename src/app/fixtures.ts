@@ -2,6 +2,9 @@ import { Heros } from 'types/app';
 import * as Icon from '@alchemiakr/web-components/icon';
 import * as Imgur from '@/integrations/Imgur';
 
+export const DOCUMENT_TITLE = '석진 & 민하 결혼합니다';
+export const DOCUMENT_DESCRIPTION = '🗓️날짜: 11월 11일 토요일 오전 11시 | 📍장소: 하우스 오브 드메르 1F 지젤홀';
+export const DOCUMENT_DESCRIPTION_SHORT = '11월11일11시 하우스오브드메르 1F 지젤홀';
 export const KAKAO_JS_APP_KEY = process.env.KAKAO_JS_APP_KEY || '';
 export const DATETIME_TITLE = '11월 11일 토요일 오전 11시';
 export const HOD_PLACE_TITLE = '하우스오브드메르';

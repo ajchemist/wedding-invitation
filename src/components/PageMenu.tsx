@@ -4,9 +4,14 @@ import * as Icon from '@alchemiakr/web-components/icon';
 import { useRef, useEffect, useState, forwardRef } from "react";
 import { UnbalancedTwoStackSVGHamgurger } from '@/components/Hamburger';
 import NavPanel, { NavPanelProps } from '@/components/NavPanel';
-import AudioPlayer from '@/components/AudioPlayer';
+import AudioPlayer, { AudioPlayerProps } from '@/components/AudioPlayer';
 
-export default function Page({ navPanelProps }: { navPanelProps: Omit<NavPanelProps, 'isOpen' | 'setIsOpen'> }) {
+interface PageMenuProps {
+    navPanelProps: Omit<NavPanelProps, 'isOpen' | 'setIsOpen'>;
+    audioPlayerProps: AudioPlayerProps;
+}
+
+export default function Page({ navPanelProps, audioPlayerProps }: PageMenuProps) {
     const sentinelRef = useRef<HTMLDivElement>(null);
     const [isSticky, setSticky] = useState<boolean>(false);
     const [hamburgerState, setHamburgerState] = useState<boolean>(false);
@@ -46,7 +51,7 @@ export default function Page({ navPanelProps }: { navPanelProps: Omit<NavPanelPr
             <nav aria-label="Global" className={`${isSticky ? 'sticky top-0 bg-gray-100 bg-opacity-80 border-b border-gray-300 backdrop-blur-md' : ''} w-full h-12 flex items-center z-10`}>
                 <div className={`grow`}></div>
                 <div className={`-mt-1 w-[44px] h-[44px] flex items-center`}>
-                    <AudioPlayer />
+                    <AudioPlayer {...audioPlayerProps}/>
                 </div>
 
                 <UnbalancedTwoStackSVGHamgurger isOpen={hamburgerState} toggle={toggleHamburger} />

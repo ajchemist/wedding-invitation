@@ -3,9 +3,25 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
-export default function AudioPlayer() {
+export interface AudioPlayerProps {
+    mediaMetadata: MediaMetadataInit;
+}
+
+export default function AudioPlayer({mediaMetadata}: AudioPlayerProps) {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+    const play = () => {
+        if (audioRef.current == null) return;
+        audioRef.current.play();
+        setIsPlaying(true);
+    };
+
+    const pause = () => {
+        if (audioRef.current == null) return;
+        audioRef.current.pause();
+        setIsPlaying(false);
+    }
 
     const togglePlayback = () => {
         if (audioRef.current == null) return;
@@ -39,13 +55,19 @@ export default function AudioPlayer() {
         window.addEventListener('keydown', handleFirstInteraction);
         window.addEventListener('touchstart', handleFirstInteraction);
 
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata(mediaMetadata);
+            navigator.mediaSession.setActionHandler('play', play);
+            navigator.mediaSession.setActionHandler('pause', pause)
+        }
+
         return () => {
             // Cleanup event listeners
             window.removeEventListener('click', handleFirstInteraction);
             window.removeEventListener('keydown', handleFirstInteraction);
             window.removeEventListener('touchstart', handleFirstInteraction);
         };
-    }, []);
+    }, [mediaMetadata]);
 
     return (
         <>

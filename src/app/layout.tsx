@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
-import { GA_MEASUREMENT_ID } from '@/app/fixtures';
+import { DOCUMENT_DESCRIPTION, DOCUMENT_TITLE, GA_MEASUREMENT_ID } from '@/app/fixtures';
 import { GTagScript } from '@/integrations/Google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -18,11 +18,11 @@ const materialSymbols = localFont({
 });
 
 export const metadata: Metadata = {
-  title: '석진 & 민하 결혼합니다',
-  description: '🗓️날짜: 11월 11일 토요일 오전 11시 | 📍장소: 하우스 오브 드메르 1F 지젤홀',
+  title: `${DOCUMENT_TITLE}`,
+  description: `${DOCUMENT_DESCRIPTION}`,
   openGraph: {
-    title: '석진 & 민하 결혼합니다',
-    description: '🗓️날짜: 11월 11일 토요일 오전 11시 | 📍장소: 하우스 오브 드메르 1F 지젤홀',
+    title: `${DOCUMENT_TITLE}`,
+    description: `${DOCUMENT_DESCRIPTION}`,
     images: [
       { url: 'https://i.imgur.com/5ZDx9nD.jpg', width: 630, height: 330 }
     ]

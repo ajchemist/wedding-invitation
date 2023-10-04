@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Bebas_Neue, Dongle, Roboto_Condensed } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
-import { DATETIME_TITLE, HEROS, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_TITLE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
+import { DATETIME_TITLE, DOCUMENT_DESCRIPTION_SHORT, DOCUMENT_TITLE, HEROS, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_TITLE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
 import { KakaoMap, KakaoMapSDKLoadingContextProvider, KakaoMapSDKScript } from '@/integrations/Kakao';
 import KakaoSDKScript from '@/components/KakaoSDKScript';
 import { useWindowSize } from '@/components/Responsive';
@@ -53,31 +53,45 @@ export default async function Home() {
         <section className="hidden portrait:hidden md:flex w-full min-h-screen items-start">
           <Image src={Imgur.imageLink("AiNvEJR")} alt="초대장 인트로 웨딩포토L" fill={true} style={{ objectFit: 'none', objectPosition: 'top' }}></Image>
         </section> */}
-          <PageMenu navPanelProps={{
-            items: [
-              {
-                children: "초대의 글",
-                href: "#heros"
-              },
-              {
-                children: "갤러리",
-                href: "#gallery"
-              },
-              {
-                children: "캘린더",
-                href: "#calendar"
-              },
-              {
-                children: "오시는 길"
-                , href: "#location"
-              },
-              {
-                children: "마음 전하실 곳"
-                , href: "#banks"
+          <PageMenu
+            audioPlayerProps={{
+              mediaMetadata: {
+                title: DOCUMENT_TITLE,
+                artist: DOCUMENT_DESCRIPTION_SHORT,
+                album: '결혼식 초대장',
+                artwork: [
+                  { src: '/artwork-384.jpg', sizes: '384x384', type: 'image/jpeg'},
+                  { src: '/apple-icon.jpg', sizes: '180x180', type: 'image/jpeg'},
+                  { src: '/artwork-60.jpg', sizes: '60x60', type: 'image/jpeg'},
+                  // multi artwork break in ios
+                ]
               }
-            ],
-            bottomComponent: ( <NavPanelBottom /> )
-          }} />
+            }}
+            navPanelProps={{
+              items: [
+                {
+                  children: "초대의 글",
+                  href: "#heros"
+                },
+                {
+                  children: "갤러리",
+                  href: "#gallery"
+                },
+                {
+                  children: "캘린더",
+                  href: "#calendar"
+                },
+                {
+                  children: "오시는 길"
+                  , href: "#location"
+                },
+                {
+                  children: "마음 전하실 곳"
+                  , href: "#banks"
+                }
+              ],
+              bottomComponent: (<NavPanelBottom />)
+            }} />
 
           <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           </div>
@@ -98,7 +112,7 @@ export default async function Home() {
           </section>
 
           <section id="banks" className={`w-full mt-12 pt-16 p-10 px-6 bg-gradient-to-b from-slate-50 to-slate-100`}>
-            <Banks banks={[ HEROS.groomFather, HEROS.groomMother, HEROS.groom, HEROS.brideFather, HEROS.brideMother, HEROS.bride ]} />
+            <Banks banks={[HEROS.groomFather, HEROS.groomMother, HEROS.groom, HEROS.brideFather, HEROS.brideMother, HEROS.bride]} />
           </section>
 
           <section id="location" className={`pt-20 landscape:pb-20 w-full bg-gradient-to-b from-slate-100/80 to-slate-50`}>
