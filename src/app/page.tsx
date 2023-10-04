@@ -24,6 +24,8 @@ import * as Imgur from '@/integrations/Imgur';
 import InviteLetterFooter from '@/app/components/InviteLetterFooter';
 import NavPanelBottom from '@/app/components/NavPanelBottom';
 
+export const dynamic = 'force-dynamic';
+
 const bebasneue = Bebas_Neue({
   subsets: ["latin"],
   weight: ['400']

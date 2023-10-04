@@ -1,6 +1,7 @@
-
 import { useState } from "react";
 import Image from "next/image";
+
+export const dynamic = 'force-dynamic'
 
 export type Params = {
     params?: Record<string, unknown>;
@@ -33,6 +34,7 @@ export const client = async (url: string, params: Params = {}) => {
 
     let opts: RequestInit = {
         method: params.params ? 'POST' : 'GET',
+        cache: 'no-store',
         ...params,
         headers: {
             ...headers,
