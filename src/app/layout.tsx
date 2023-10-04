@@ -20,6 +20,7 @@ const materialSymbols = localFont({
 export const metadata: Metadata = {
   title: `${DOCUMENT_TITLE}`,
   description: `${DOCUMENT_DESCRIPTION}`,
+  metadataBase: new URL('https://wedding-1111.netlify.app'),
   openGraph: {
     title: `${DOCUMENT_TITLE}`,
     description: `${DOCUMENT_DESCRIPTION}`,

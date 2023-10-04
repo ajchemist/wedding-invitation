@@ -16,8 +16,8 @@ const calendarEvent = {
         imageUrl:
             'http://k.kakaocdn.net/dn/dFUqwp/bl3SUTqb2VV/VFSqyPpKUzZVVMcmotN9A0/kakaolink40_original.png',
         link: {
-            webUrl: 'https://wedding-11-11.netlify.app',
-            mobileWebUrl: 'https://wedding-11-11.netlify.app',
+            webUrl: 'https://wedding-1111.netlify.app',
+            mobileWebUrl: 'https://wedding-1111.netlify.app',
         },
     },
     // social: {
@@ -27,8 +27,8 @@ const calendarEvent = {
         {
             title: '모임 주제 보기',
             link: {
-                webUrl: 'https://wedding-11-11.netlify.app',
-                mobileWebUrl: 'https://wedding-11-11.netlify.app',
+                webUrl: 'https://wedding-1111.netlify.app',
+                mobileWebUrl: 'https://wedding-1111.netlify.app',
             },
         },
     ],
@@ -41,37 +41,37 @@ export default function Page() {
 
     return (
         <>
-            <KakaoSDK onLoad={() => { 
+            <KakaoSDK onLoad={() => {
                 window.Kakao.init(KAKAO_JS_APP_KEY);
             }} />
             <ZBlockContainer>
-                <a onClick={() => { 
+                <a onClick={() => {
                     window.Kakao.Share.sendCustom({
                         templateId: 98561,
                         templateArgs: {
                             THU: "https://i.imgur.com/44NZJXDh.jpg",
                         }
-                    }) 
+                    })
                 }}>anchor</a>
             </ZBlockContainer>
             <ZBlockContainer>
-                <a onClick={() => { 
+                <a onClick={() => {
                     window.Kakao.Share.sendCustom({
                         templateId: 98561,
                         templateArgs: {
                             THU: "https://i.imgur.com/44NZJXDh.jpg",
                         }
-                    }) 
+                    })
                 }}>anchor</a>
             </ZBlockContainer>
             <ZBlockContainer>
-                <a onClick={() => { 
+                <a onClick={() => {
                     window.Kakao.Share.sendCustom({
                         templateId: 98561,
                         templateArgs: {
                             THU: "https://i.imgur.com/44NZJXDh.jpg",
                         }
-                    }) 
+                    })
                 }}>anchor</a>
             </ZBlockContainer>
         </>
