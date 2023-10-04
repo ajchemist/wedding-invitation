@@ -16,7 +16,7 @@ export default function NavPanelBottom() {
                     window.Kakao.Share.sendCustom({
                         templateId: 98561,
                         templateArgs: {
-                            THU: Imgur.imageLink("44NZJXD", "h", ".jpg"),
+                            THU: Imgur.imageLink("69j4O5G", "h", ".jpg"),
                         }
                     })
                 }}

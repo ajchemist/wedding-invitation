@@ -62,9 +62,9 @@ export default async function Home() {
                 artist: DOCUMENT_DESCRIPTION_SHORT,
                 album: '결혼식 초대장',
                 artwork: [
-                  { src: 'https://i.imgur.com/i0zWcM5.png', sizes: '96x96', type: 'image/png' },
-                  { src: 'https://i.imgur.com/0O9GDaD.png', sizes: '128x128', type: 'image/png' },
-                  { src: 'https://i.imgur.com/BttPrgB.png', sizes: '384x384', type: 'image/png' },
+                  // { src: 'https://i.imgur.com/i0zWcM5.png', sizes: '96x96', type: 'image/png' },
+                  // { src: 'https://i.imgur.com/0O9GDaD.png', sizes: '128x128', type: 'image/png' },
+                  { src: 'https://i.imgur.com/HL7Iz1p.png', sizes: '384x384', type: 'image/png' },
                   // { src: '/artwork-384.jpg', sizes: '384x384', type: 'image/jpeg'},
                   // { src: '/apple-icon.jpg', sizes: '180x180', type: 'image/jpeg'},
                   // { src: '/artwork-60.jpg', sizes: '60x60', type: 'image/jpeg'},
@@ -101,7 +101,7 @@ export default async function Home() {
           <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           </div>
 
-          <section id="heros" className={`container pt-20 pb-10 landscape:h-auto landscape:my-12 md:h-auto md:my-12 flex flex-col justify-center gap-12`}>
+          <section id="heros" className={`container pt-20 pb-10 landscape:h-auto landscape:my-12 md:h-auto md:my-12 flex flex-col justify-center gap-10`}>
             <MainHeros {...HEROS}></MainHeros>
             <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
             <InviteLetterFooter />
