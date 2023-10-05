@@ -226,7 +226,7 @@
   }
 
   .invite-letter > p {
-    @apply my-8 flex flex-col gap-0.5 opacity-80;
+    @apply my-8 flex flex-col gap-0.5 text-zinc-950 opacity-80;
   }
 
   .invite-letter > p > span {
@@ -234,7 +234,7 @@
   }
 
   .invite-letter > h2 {
-    @apply opacity-90;
+    @apply text-zinc-950 opacity-90;
   }
 
   .invite-letter > h2 > .hero-parent-name {
