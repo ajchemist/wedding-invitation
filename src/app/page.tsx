@@ -23,6 +23,7 @@ import Footer from '@/components/Footer';
 import * as Imgur from '@/integrations/Imgur';
 import InviteLetterFooter from '@/app/components/InviteLetterFooter';
 import NavPanelBottom from '@/app/components/NavPanelBottom';
+import BlurImage from '@/components/BlurImage';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,7 +75,7 @@ export default async function Home() {
               <h2 className={`px-8 text-3xl text-right ${nanum_pen_script.className} tracking-tighter`}>석진 & 민하 결혼합니다.</h2>
               <h3 className={`pl-8 pr-6 mt-1.5 text- text-right font-mono tracking-tighter`}>11.11 11 a.m.</h3>
               <div className={`w-full pt-8 px-8 m-auto`}>
-                <Image
+                <BlurImage
                   src={Imgur.imageLink("5bvjK6H")}
                   alt={`인트로 웨딩포토(P)`}
                   width={800}
@@ -89,7 +90,7 @@ export default async function Home() {
           <div id="intro-a-mask-landscape" className={`-z-10 absolute portrait:py-20 inset-0 bg-gradient-to-b from-10% from-zinc-50 to-zinc-100 text-slate-800`}>
             <div className={'fixed w-full'}>
               <div className={`pt-8 pl-16 h-screen m-auto`}>
-                <Image
+                <BlurImage
                   src={Imgur.imageLink("xp4dE7e")}
                   alt={`인트로 웨딩포토(L)`}
                   width={480}
