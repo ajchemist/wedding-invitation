@@ -1,7 +1,6 @@
 import '@/app/globals.css'
 import { Metadata } from 'next'
 import Head from 'next/head';
-import Script from 'next/script';
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import { DOCUMENT_DESCRIPTION, DOCUMENT_TITLE, GA_MEASUREMENT_ID } from '@/app/fixtures';

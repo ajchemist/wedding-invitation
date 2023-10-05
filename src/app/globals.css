@@ -259,14 +259,50 @@
 }
 
 @layer components {
+  @media (min-aspect-ratio: 18/39) {
+    #intro-a-mask > div > div {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      height: 100%;
+    }
+  }
+
+  @media (min-aspect-ratio: 14/25) {
+    #intro-a-mask > div > div {
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+    }
+  }
+
+  @media (min-aspect-ratio: 5/8) {
+    #intro-a-mask > div > div {
+      padding-left: 4.5rem;
+      padding-right: 4.5rem;
+    }
+  }
+
+  @media (min-aspect-ratio: 2/3) {
+    #intro-a-mask > div > div {
+      padding-left: 5.5rem;
+      padding-right: 5.5rem;
+    }
+  }
+
+  @media (min-aspect-ratio: 11/15) {
+    #intro-a-mask > div > div {
+      padding-left: 6.5rem;
+      padding-right: 6.5rem;
+    }
+  }  
+
   #intro-a-mask {
-    mask: linear-gradient(rgba(0, 0, 0, 1) 0 70%, transparent 99% 100%);    
+    mask: linear-gradient(rgba(0, 0, 0, 1) 0 70%, transparent 99% 100%);
     -webkit-mask: linear-gradient(rgba(0, 0, 0, 1) 0 70%, transparent 99% 100%);
     mask-position: bottom;
     -webkit-mask-position: bottom;
   }
   #intro-a-mask-landscape {
-    mask: linear-gradient(rgba(0, 0, 0, 1) 0 90%, transparent 99% 100%);    
+    mask: linear-gradient(rgba(0, 0, 0, 1) 0 90%, transparent 99% 100%);
     -webkit-mask: linear-gradient(rgba(0, 0, 0, 1) 0 90%, transparent 99% 100%);
     mask-position: bottom;
     -webkit-mask-position: bottom;
