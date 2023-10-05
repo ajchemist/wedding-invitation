@@ -1,11 +1,39 @@
 "use client";
 
-import { useRef, useEffect, useState, use } from "react";
+import { useRef, useEffect, useState, createContext, useContext } from "react";
 
 interface Props {
     isOpen: boolean;
     toggle: () => void;
 }
+
+// 
+
+type HamburgerContext = {
+    isOpen: boolean;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const HamburgerContext = createContext<HamburgerContext | null>(null);
+
+export const useHamburgerContext = (): HamburgerContext => {
+    const ctx = useContext(HamburgerContext);
+    if (!ctx) {
+        throw new Error("useHamburgerContext must be used within a HamburgurContextProvider")
+    };
+    return ctx;
+};
+
+export const HamgurgerContextProvider = ({ children }: { children: React.ReactNode }) => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    return (
+        <HamburgerContext.Provider value={{ isOpen, setIsOpen }}>
+            {children}
+        </HamburgerContext.Provider>
+    );
+};
+
+// 
 
 export const UnbalancedTwoStackSVGHamgurger = ({ isOpen, toggle }: Props) => {
     const svgRef = useRef<SVGSVGElement>(null);
@@ -34,7 +62,7 @@ export const UnbalancedTwoStackSVGHamgurger = ({ isOpen, toggle }: Props) => {
     }, [isOpen]);
 
     return (
-        <div className={`flex items-center p-4`}>
+        <div className={`flex items-center`}>
             <button aria-label="HamgurgerButton" onClick={toggle} className={`z-10 flex items-center text-black opacity-80 cursor-pointer`}>
                 <svg ref={svgRef} width="18" height="18" viewBox="0 0 18 18">
                     <polyline className={`globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom`} id="globalnav-menutrigger-bread-bottom" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" points="2 12, 16 12">
