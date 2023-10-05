@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Bebas_Neue, Dongle, Roboto_Condensed, Rochester, Monsieur_La_Doulaise, Nanum_Pen_Script } from 'next/font/google';
+import { Bebas_Neue, Dongle, Roboto_Condensed, Rochester, Monsieur_La_Doulaise, Nanum_Pen_Script, Lovers_Quarrel } from 'next/font/google';
 import { motion } from 'framer-motion';
 import * as Icon from '@alchemiakr/web-components/icon';
 import { DATETIME_TITLE, DOCUMENT_DESCRIPTION_SHORT, DOCUMENT_TITLE, HEROS, HOD_PLACE_COORD, HOD_PLACE_TEXT_NAME, HOD_PLACE_TITLE, INVITE_PARAGRAPH, KAKAO_JS_APP_KEY } from '@/app/fixtures';
@@ -54,6 +54,11 @@ const monsieur_la_doulaise = Monsieur_La_Doulaise({
 const nanum_pen_script = Nanum_Pen_Script({
   subsets: ["latin"],
   weight: ["400"]
+});
+
+const lovers_quarrel = Lovers_Quarrel({
+  subsets: ["latin"],
+  weight: ["400"]
 })
 
 export default async function Home() {
@@ -63,6 +68,43 @@ export default async function Home() {
     <>
       <KakaoMapSDKLoadingContextProvider>
         <KakaoSDKScript appkey={KAKAO_JS_APP_KEY} />
+        <div id="intro-a" className={`h-screen relative landscape:hidden`}>
+          <div id="intro-a-mask" className={`-z-10 absolute portrait:py-20 inset-0 bg-gradient-to-b from-10% from-[rgba(255,0,0,0.03)] to-[rgba(255,0,0,0.17)] text-slate-800`}>
+            <div className={'fixed'}>
+              <h2 className={`px-8 text-3xl text-right ${nanum_pen_script.className} tracking-tighter`}>석진 & 민하 결혼합니다.</h2>
+              <h3 className={`pl-8 pr-6 mt-1.5 text- text-right font-mono tracking-tighter`}>11.11 11 a.m.</h3>
+              <div className={`w-full pt-8 px-8 m-auto`}>
+                <Image
+                  src={Imgur.imageLink("5bvjK6H")}
+                  alt={`인트로 웨딩포토(P)`}
+                  width={800}
+                  height={1066}
+                />
+              </div>
+              <h1 className={`px-5 mt-2.5 ${monsieur_la_doulaise.className} text-5xl`} style={{ textShadow: '#fafafaee 0.25rem 0.45rem' }}>Wedding Invitation.</h1>
+            </div>
+          </div>
+        </div>
+        <div id="intro-a-landscape" className={`relative hidden landscape:block landscape:h-screen`}>
+          <div id="intro-a-mask-landscape" className={`-z-10 absolute portrait:py-20 inset-0 bg-gradient-to-b from-10% from-zinc-50 to-zinc-100 text-slate-800`}>
+            <div className={'fixed w-full'}>
+              <div className={`pt-8 pl-16 h-screen m-auto`}>
+                <Image
+                  src={Imgur.imageLink("xp4dE7e")}
+                  alt={`인트로 웨딩포토(L)`}
+                  width={480}
+                  height={320}
+                />
+              </div>
+              <div className={`absolute top-12 right-0 px-16 text-right w-full`}>
+                <h2 className={`text-3xl ${nanum_pen_script.className} tracking-tighter`}>석진 & 민하 결혼합니다.</h2>
+                <h3 className={`mt-1.5 -mr-3 font-mono tracking-tighter`}>11.11 11 a.m.</h3>
+              </div>
+              <h1 className={`absolute bottom-12 right-6 ${monsieur_la_doulaise.className} text-5xl`} style={{ textShadow: '#fafafa9f 0.25rem 0.25rem' }}>Wedding Invitation.</h1>
+            </div>
+          </div>
+        </div>
+
         <main className="flex min-h-screen flex-col items-center justify-between">
           {/* <section className="flex landscape:hidden md:hidden bg-cover bg-center w-full min-h-screen items-start">
           <Image src={Imgur.imageLink("GWMYmxD")} alt="초대장 인트로 웨딩포토P" fill={true} sizes="123vw" style={{ objectFit: 'none', objectPosition: 'top' }} />
@@ -113,23 +155,10 @@ export default async function Home() {
               bottomComponent: (<NavPanelBottom />)
             }} />
 
-          <div className={`h-screen -mb-8 relative landscape:hidden`}>
-            <div className={`w-full py-12 px-8 m-auto`}>
-              <Image
-                src={Imgur.imageLink("5bvjK6H")}
-                alt={`인트로 웨딩포토(P)`}
-                width={800}
-                height={1066}
-              />
-            </div>
-            <h1 className={`px-4 mt-4 ${monsieur_la_doulaise.className} text-5xl`}>Wedding Invitation</h1>
-            <h2 className={`px-8 mt-2.5 text-3xl text-right ${nanum_pen_script.className}`}>석진 & 민하 결혼합니다.</h2>
-          </div>
-
           <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           </div>
 
-          <section id="heros" className={`container pt-20 pb-10 landscape:h-auto landscape:my-12 md:h-auto md:my-12 flex flex-col justify-center gap-10`}>
+          <section id="heros" className={`container pt-20 pb-16 landscape:h-auto landscape:my-12 md:h-auto md:my-12 flex flex-col justify-center gap-10 bg-gradient-to-b from-gray-50 to-gray-100`}>
             <MainHeros {...HEROS}></MainHeros>
             <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
             <InviteLetterFooter />

@@ -254,6 +254,21 @@
 
 @layer components {
   button.show-account-detail {
-    @apply text-sm p-1 border text-black/70 border-black/70 rounded
+    @apply text-sm p-1 border text-black/70 border-black/70 rounded;
+  }
+}
+
+@layer components {
+  #intro-a-mask {
+    mask: linear-gradient(rgba(0, 0, 0, 1) 0 70%, transparent 99% 100%);    
+    -webkit-mask: linear-gradient(rgba(0, 0, 0, 1) 0 70%, transparent 99% 100%);
+    mask-position: bottom;
+    -webkit-mask-position: bottom;
+  }
+  #intro-a-mask-landscape {
+    mask: linear-gradient(rgba(0, 0, 0, 1) 0 90%, transparent 99% 100%);    
+    -webkit-mask: linear-gradient(rgba(0, 0, 0, 1) 0 90%, transparent 99% 100%);
+    mask-position: bottom;
+    -webkit-mask-position: bottom;
   }
 }
