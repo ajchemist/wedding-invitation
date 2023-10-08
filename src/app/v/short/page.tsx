@@ -6,7 +6,6 @@ import Place from '@/app/components/Place';
 import { Calendar } from '@/components/Calendar';
 import MainHeros from '@/components/MainHeros';
 import InviteLetter from '@/components/InviteLetter';
-// import EventInfo from '@/components/EventInfo';
 import PageMenu from '@/components/PageMenu';
 import { Gallery } from '@/components/Gallery';
 import Banks from '@/components/Banks';
@@ -116,10 +115,6 @@ export default async function Home() {
                   href: "#heros"
                 },
                 {
-                  children: "갤러리",
-                  href: "#gallery"
-                },
-                {
                   children: "캘린더",
                   href: "#calendar"
                 },
@@ -133,9 +128,10 @@ export default async function Home() {
                 }
               ],
               bottomComponent: (<NavPanelBottom kakaoShareSendCustomParams={{
-                templateId: 98561,
+                templateId: 99264,
                 templateArgs: {
                   THU: Imgur.imageLink("69j4O5G", "h", ".jpg"),
+                  header: "Wedding Invitation #S",
                 }
               }} />)
             }} />
@@ -147,11 +143,6 @@ export default async function Home() {
             <MainHeros {...HEROS}></MainHeros>
             <InviteLetter lines={INVITE_PARAGRAPH} heros={HEROS} />
             <InviteLetterFooter />
-          </section>
-
-          <section id="gallery" className={`pt-20 p-2 md:p-3 lg:p-4`} >
-            <Gallery images={images.data} />
-            <div className={`my-12`}></div>
           </section>
 
           <section id="calendar" className={`pt-20 container flex justify-center`}>
