@@ -7,7 +7,7 @@ import { TmapNaviUrl } from "../Tmap";
 
 export default function TmapNaviButton({ name, coordinate, ...props}: NaviButtonProps) {
     return (
-        <button className={`w-14 h-14`} onClick={() => {
+        <button type="button" className={`w-14 h-14`} onClick={() => {
             window.open(TmapNaviUrl(name, coordinate), "_blank");
         }} {...props}>
             <Image src={TmapNaviSvg} alt="TmapNavi" width={120} height={120} />

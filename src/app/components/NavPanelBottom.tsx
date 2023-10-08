@@ -36,16 +36,17 @@ export default function NavPanelBottom({ kakaoShareSendCustomParams }: NavPanelB
 
     return (
         <div className={`flex gap-1`}>
-            <Image
-                className={`inline-block w-9 h-9`}
-                onClick={() => {
-                    window.Kakao.Share.sendCustom(kakaoShareSendCustomParams);
-                }}
-                src={KakaoTalkSVG}
-                alt="KakaoTalk"
-                width={80}
-                height={80}
-            />
+            <button type="button" className={`inline-block w-9 h-9 cursor-pointer`}>
+                <Image
+                    onClick={() => {
+                        window.Kakao.Share.sendCustom(kakaoShareSendCustomParams);
+                    }}
+                    src={KakaoTalkSVG}
+                    alt="KakaoTalk"
+                    width={80}
+                    height={80}
+                />
+            </button>
             <KakaoNaviButton name={HOD_PLACE_NAVI_TITLE} coordinate={HOD_PLACE_COORD} className={`w-9 h-9`} />
             <TmapNaviButton name={HOD_PLACE_NAVI_TITLE} coordinate={HOD_PLACE_COORD} className={`w-9 h-9`} />
         </div>

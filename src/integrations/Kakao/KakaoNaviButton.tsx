@@ -8,7 +8,7 @@ export default function KakaoNaviButton({ name, coordinate, ...props }: NaviButt
     const { lat, lng } = coordinate;
 
     return (
-        <button className={`w-14 h-14`} onClick={() => {
+        <button type="button" className={`w-14 h-14`} onClick={() => {
             window.Kakao.Navi.share({
                 name,
                 x: lng,
