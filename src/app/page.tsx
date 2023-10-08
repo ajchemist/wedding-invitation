@@ -94,6 +94,7 @@ export default async function Home() {
         </section> */}
           <PageMenu
             audioPlayerProps={{
+              src: "https://wedding-11-11.s3.ap-northeast-2.amazonaws.com/Yestalgia+-+Invitation.wav",
               mediaMetadata: {
                 title: DOCUMENT_TITLE,
                 artist: DOCUMENT_DESCRIPTION_SHORT,
