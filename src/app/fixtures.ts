@@ -9,7 +9,7 @@ export const KAKAO_JS_APP_KEY = process.env.KAKAO_JS_APP_KEY || '';
 export const DATETIME_TITLE = '11월 11일 토요일 오전 11시';
 export const HOD_PLACE_TITLE = '하우스오브드메르';
 export const HOD_PLACE_NAVI_TITLE = '하우스오브드메르';
-export const HOD_PLACE_TEXT_NAME = '하우스오브드메르 1F 지젤홀';
+export const HOD_PLACE_TEXT_NAME = '하우스오브드메르(신관) 1F 지젤홀';
 export const HOD_PLACE_ADDRESS = '광주 광산구 임방울대로 551';
 export const HOD_PLACE_ADDRESS_LEGACY = '도천동 147-26';
 export const HOD_PLACE_ZIP_CODE = '62244';
@@ -41,7 +41,7 @@ export const GA_MEASUREMENT_ID = 'G-WC7DK2FPE3';
 
 export const HOD_KAKAO_MAP_OVERLAY_CONTENT = '<div class="wrap rounded-lg">' +
     '      <div class="info">' +
-    '        <div class="flex items-center justify-between w-full text-lg px-2 py-1 shadow bg-gray-100">' +
+    '        <div class="flex items-center justify-between w-full text-base px-2 py-1 shadow bg-gray-100">' +
     `          <span class="ml-0.5">${HOD_PLACE_TEXT_NAME}</span>` +
     `          <div class="w-[21px] h-[21px] cursor-pointer" onclick="closeOverlay()" title="닫기">${Icon.DANGER_SVG_RAW}</div>` +
     '        </div>' +
@@ -65,7 +65,7 @@ export const HOD_KAKAO_MAP_OVERLAY_CONTENT = '<div class="wrap rounded-lg">' +
 export const render_HOD_KAKAO_MAP_OVERLAY_CONTENT = (onclick: string) => {
     return '<div class="wrap rounded-lg">' +
         '      <div class="info">' +
-        '        <div class="flex items-center justify-between w-full text-lg px-2 py-1 shadow bg-gray-100">' +
+        '        <div class="flex items-center justify-between w-full text-base px-2 py-1 shadow bg-gray-100">' +
         `          <span class="ml-0.5">${HOD_PLACE_TEXT_NAME}</span>` +
         `          <div class="w-[21px] h-[21px] cursor-pointer" onclick="${onclick}()" title="닫기">${Icon.DANGER_SVG_RAW}</div>` +
         '        </div>' +

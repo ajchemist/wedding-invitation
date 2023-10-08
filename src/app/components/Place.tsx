@@ -80,9 +80,9 @@ export function HOD_KakaoMap() {
 function HallTextComponent({ title, address, contact }: PlaceProps) {
     return (
         <section className="text-center md:text-left landscape:text-left md:pr-10 landscape:pr-10 space-y-1">
-            <h1 className={`${bebasneue.className} text-4xl`}>House of Demer</h1>
-            <h1 className={`${noto_serif_kr.className} text-2xl tracking-tighter`}>{title}</h1>
-            <h2 className={`${noto_serif_kr.className} font-light text-xl tracking-tighter`}>{address}</h2>
+            <h1 className={`${bebasneue.className} text-3xl`}>House of Demer</h1>
+            <h1 className={`${noto_serif_kr.className} text-xl tracking-tighter`}>{title}</h1>
+            <h2 className={`${noto_serif_kr.className} font-light text-lg tracking-tighter`}>{address}</h2>
             <h2 className={`tracking-tighter`}>
                 <a href={`tel:${contact}`}>
                     <button className={`text-sm mt-1.5 py-2 px-3 rounded-2xl text-slate-50 bg-emerald-400 inline-flex items-center`}>
