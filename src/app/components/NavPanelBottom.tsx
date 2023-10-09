@@ -18,7 +18,7 @@ const removeStartingSlash = (str: string) => {
 type kakaoShareSendCustomParams = {
     templateId: number;
     templateArgs?: Record<string, string>;
-    serverCallbackArgs?: Record<string, string>;
+    serverCallbackArgs?: Record<string, any>;
 }
 
 interface NavPanelBottomProps {
@@ -28,10 +28,14 @@ interface NavPanelBottomProps {
 export default function NavPanelBottom({ kakaoShareSendCustomParams }: NavPanelBottomProps) {
     const pathname = removeStartingSlash(usePathname());
 
-    if (kakaoShareSendCustomParams.templateArgs === undefined) {
-        kakaoShareSendCustomParams.templateArgs = { path: pathname };
-    } else if (kakaoShareSendCustomParams.templateArgs.path === undefined) {
-        kakaoShareSendCustomParams.templateArgs.path = pathname;
+    kakaoShareSendCustomParams.templateArgs = { 
+        ...kakaoShareSendCustomParams.templateArgs,
+        path: kakaoShareSendCustomParams.templateArgs?.path ?? pathname
+    };
+
+    kakaoShareSendCustomParams.serverCallbackArgs = { 
+        ...kakaoShareSendCustomParams.serverCallbackArgs, 
+        TEMPLATE_ARGS: kakaoShareSendCustomParams.templateArgs
     }
 
     return (
