@@ -26,6 +26,7 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
         index: index,
         slides: slideImages(images),
         render: { buttonNext: () => null, buttonPrev: () => null },
+        on: { view: ({ index }) => setIndex(index) },
         open: index >= 0,
         close: () => setIndex(-1)
     };
