@@ -308,3 +308,35 @@
     -webkit-mask-position: bottom;
   }
 }
+
+@layer components {
+  .h-snap-gallery > ul {
+    /* prevent accidentally going back or triggering other swipe events */
+    /* overscroll-behavior: contain; */
+
+    /* momentum scroll on iOS */
+    -webkit-overflow-scrolling: touch;
+ 
+    /* disbable vertical scroll for touch */
+    /* touch-action: pan-x; */
+
+    /* hide scroll bar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* scroll-padding-left: 4rem;
+    scroll-padding-inline-start: 4rem; */
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  .h-snap-gallery > ul::-webkit-scrollbar { display: none; }
+
+  .h-snap-gallery > ul > li {
+      /* scroll snapping */
+  scroll-snap-align: center;
+
+  /* maybe this will work in the future 🤷‍♂️ */
+  scroll-snap-stop: always;
+  }
+}

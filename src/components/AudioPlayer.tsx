@@ -4,11 +4,11 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 export interface AudioPlayerProps {
-    src: string;
+    src: string | null;
     mediaMetadata: MediaMetadataInit;
 }
 
-export default function AudioPlayer({src, mediaMetadata}: AudioPlayerProps) {
+export default function AudioPlayer({ src, mediaMetadata }: AudioPlayerProps) {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
@@ -72,7 +72,9 @@ export default function AudioPlayer({src, mediaMetadata}: AudioPlayerProps) {
 
     return (
         <>
-            <audio ref={audioRef} loop={true} src={src}></audio>
+            {src ? (
+                <audio ref={audioRef} loop={true} src={src}></audio>
+            ) : null}
             <button onClick={togglePlayback}>
                 <Image src={isPlaying ? "https://i.imgur.com/PDowdV0.gif" : "https://i.imgur.com/QEO9rZr.webp"} alt="play" width={65} height={65} />
             </button>
