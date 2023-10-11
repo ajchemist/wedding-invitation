@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import { ImageType } from "types/app";
 
 export const dynamic = 'force-dynamic'
 
@@ -9,14 +10,13 @@ export type Params = {
     [propName: string]: any;
 };
 
-export type Image = {
+export interface Image extends ImageType {
     id: string;
     title: string | null;
     description: string | null;
     link: string;
     width: number;
     height: number;
-    [key: string]: any;
 };
 
 const ORIGIN_HOST = 'https://i.imgur.com';

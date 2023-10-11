@@ -5,31 +5,25 @@ import Image from "next/image";
 import Link from "next/link";
 import * as Imgur from '@/integrations/Imgur';
 import * as ImgurComponent from '@/integrations/Imgur/Component';
-import Lightbox, { LightboxExternalProps, SlideImage } from "yet-another-react-lightbox";
+import Lightbox, { LightboxExternalProps } from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { useWindowSize } from "@/components/Responsive"
-
-const slideImages = (images: Imgur.Image[]): SlideImage[] => images.map((image) => ({
-    src: image.link.replace(/\.(jpg|jpeg|png)$/, '.webp'),
-    width: image.width,
-    height: image.height,
-    alt: ''
-}));
+import { makeLightboxProps } from "@/components/Lightbox";
 
 export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
     const [index, setIndex] = useState(-1);
     const size = useWindowSize();
 
-    let lightboxProps: LightboxExternalProps = {
-        index: index,
-        slides: slideImages(images),
+    let lightboxProps: LightboxExternalProps = makeLightboxProps({
+        images,
+        index,
         render: { buttonNext: () => null, buttonPrev: () => null },
         on: { view: ({ index }) => setIndex(index) },
         open: index >= 0,
         close: () => setIndex(-1)
-    };
+    });
     if (size.width !== undefined && size.height !== undefined && size.width > 640) {
         lightboxProps.render = {};
     }

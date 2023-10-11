@@ -19,6 +19,13 @@ declare module "types/app" {
         width: number | undefined;
         height: number | undefined;
     }
+
+    export interface ImageType extends Record<string, any> {
+        id: string;
+        link: string;
+        width: number;
+        height: number;
+    }
 }
 
 declare module "types/app/component" {
