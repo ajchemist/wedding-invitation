@@ -150,7 +150,7 @@ export default async function Home() {
                         <InviteLetterFooter />
                     </section>
 
-                    <section id="gallery" className={`py-20 w-full p-2 md:p-3 lg:p-4 bg-gradient-to-b from-zinc-50 to-zinc-100`} >
+                    <section id="gallery" className={`py-20 w-full px-2 md:px-3 lg:px-4 bg-gradient-to-b from-zinc-50 to-zinc-100`} >
                         <HSnapGallery2 images={images.data} />
                     </section>
 

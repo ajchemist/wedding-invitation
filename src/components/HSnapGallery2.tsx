@@ -41,7 +41,7 @@ export default function HSnapGallery({ images }: HSnapGalleryProps) {
                 {...lightboxProps}
             />
             <div className={`w-full h-snap-gallery`}>
-                <ul className={`p-4 md:px-8 lg:px-12 flex overflow-x-scroll gap-x-4 h-80`}>
+                <ul className={`p-4 md:px-8 lg:px-12 flex overflow-x-scroll gap-x-4 h-80 sm:h-128 max-h-screen`}>
                     {images.map((image, idx) => (
                         <li
                             key={idx}
