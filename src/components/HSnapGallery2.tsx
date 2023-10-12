@@ -53,7 +53,7 @@ export default function HSnapGallery({ images }: HSnapGalleryProps) {
                                 src={image.link}
                                 alt={``}
                                 fill={true}
-                                style={{objectFit: 'cover'}}
+                                style={{objectFit: 'cover', objectPosition: 'top'}}
                                 // width={image.width}
                                 // height={image.height}
                             />
