@@ -72,9 +72,7 @@ export default function AudioPlayer({ src, mediaMetadata }: AudioPlayerProps) {
 
     return (
         <>
-            {src ? (
-                <audio ref={audioRef} loop={true} src={src}></audio>
-            ) : null}
+            <audio ref={audioRef} loop={true} src={src ?? ''}></audio>
             <button onClick={togglePlayback}>
                 <Image src={isPlaying ? "https://i.imgur.com/PDowdV0.gif" : "https://i.imgur.com/QEO9rZr.webp"} alt="play" width={65} height={65} />
             </button>

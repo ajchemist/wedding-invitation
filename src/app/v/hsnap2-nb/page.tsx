@@ -7,7 +7,7 @@ import { Calendar } from '@/components/Calendar';
 import MainHeros from '@/components/MainHeros';
 import InviteLetter from '@/components/InviteLetter';
 import PageMenu from '@/components/PageMenu';
-import HSnapGallery from '@/components/HSnapGallery';
+import HSnapGallery2 from '@/components/HSnapGallery2';
 import Banks from '@/components/Banks';
 import Footer from '@/components/Footer';
 import * as Imgur from '@/integrations/Imgur';
@@ -93,7 +93,7 @@ export default async function Home() {
         </section> */}
                     <PageMenu
                         audioPlayerProps={{
-                            src: null,
+                            src: "https://wedding-11-11.s3.ap-northeast-2.amazonaws.com/10-seconds-of-silence.mp3",
                             mediaMetadata: {
                                 title: DOCUMENT_TITLE,
                                 artist: DOCUMENT_DESCRIPTION_SHORT,
@@ -150,8 +150,8 @@ export default async function Home() {
                         <InviteLetterFooter />
                     </section>
 
-                    <section id="gallery" className={`pt-20 p-2 md:p-3 lg:p-4 bg-gradient-to-b from-zinc-50 to-zinc-100`} >
-                        <HSnapGallery images={images.data} />
+                    <section id="gallery" className={`py-20 w-full p-2 md:p-3 lg:p-4 bg-gradient-to-b from-zinc-50 to-zinc-100`} >
+                        <HSnapGallery2 images={images.data} />
                     </section>
 
                     <section id="calendar" className={`pt-20 container flex justify-center`}>
