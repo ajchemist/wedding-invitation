@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: `${DOCUMENT_TITLE}`,
     description: `${DOCUMENT_DESCRIPTION_SHORT}`,
     images: [
-      { url: 'https://i.imgur.com/5ZDx9nD.jpg', width: 630, height: 330 }
+      { url: 'https://i.imgur.com/g7UZSL1l.jpg', width: 640, height: 335 }
     ]
   }
 };
