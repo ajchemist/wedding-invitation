@@ -3,6 +3,11 @@ import type { NextRequest } from 'next/server';
 
 export default function middleware(request: NextRequest) {
     const userAgent = request.headers.get('User-Agent') || '';
+
+    if (userAgent.match(/kakaotalk-scrap/i)) {
+        return NextResponse.next()
+    }
+
     if (userAgent.match(/kakaotalk/i)) {
         // 'kakaotalk' 문자열이 포함되어 있을 경우, 특정 스크립트를 포함한 HTML 응답
         return new NextResponse(

@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import Head from 'next/head';
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
-import { DOCUMENT_DESCRIPTION, DOCUMENT_TITLE, GA_MEASUREMENT_ID } from '@/app/fixtures';
+import { DOCUMENT_DESCRIPTION_SHORT, DOCUMENT_TITLE, GA_MEASUREMENT_ID } from '@/app/fixtures';
 import { GTagScript } from '@/integrations/Google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -18,11 +18,11 @@ const materialSymbols = localFont({
 
 export const metadata: Metadata = {
   title: `${DOCUMENT_TITLE}`,
-  description: `${DOCUMENT_DESCRIPTION}`,
+  description: `${DOCUMENT_DESCRIPTION_SHORT}`,
   metadataBase: new URL('https://wedding-1111.netlify.app'),
   openGraph: {
     title: `${DOCUMENT_TITLE}`,
-    description: `${DOCUMENT_DESCRIPTION}`,
+    description: `${DOCUMENT_DESCRIPTION_SHORT}`,
     images: [
       { url: 'https://i.imgur.com/5ZDx9nD.jpg', width: 630, height: 330 }
     ]
