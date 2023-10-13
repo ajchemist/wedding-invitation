@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import * as Imgur from '@/integrations/Imgur';
@@ -46,6 +46,35 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
         return arr;
     }
 
+    useEffect(() => {
+        if (document.querySelectorAll('[data-image-link]').length <= 0) return;
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    window.gtag('event', 'view', {
+                        "event_category": "Image Impression",
+                        "event_label": entry.target.getAttribute('data-image-link')
+                    })
+                    observer.unobserve(entry.target);
+                }
+                console.log(entry, entry.target.getAttribute('data-image-link'))
+            });
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.8
+        });
+
+        document.querySelectorAll('[data-image-link]').forEach(img => {
+            observer.observe(img)
+        })
+
+        return () => {
+            observer.disconnect();
+        }
+    }, [])
+
     return (
         <>
             <Lightbox
@@ -56,7 +85,13 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
                     <div key={columnIndex} className={`flex flex-col gap-2`}>
                         {column.map((image, idx) => (
                             <div key={idx} className={`group shadow-md bg-gray-100 rounded overflow-hidden cursor-pointer`}>
-                                <ImgurComponent.BlurImage image={image} onClick={() => setIndex(columnIndex + idx * 2)}  />
+                                <ImgurComponent.BlurImage image={image} onClick={() => {
+                                    setIndex(columnIndex + idx * 2)
+                                    window.gtag('event', 'click', {
+                                        'event_category': 'Image Interaction',
+                                        'event_label': image.link
+                                    })
+                                }} />
                             </div>
                         ))}
                     </div>
@@ -67,7 +102,13 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
                     <div key={columnIndex} className={`flex flex-col gap-3`}>
                         {column.map((image, idx) => (
                             <div key={idx} className={`group shadow-md bg-gray-100 rounded overflow-hidden cursor-pointer`}>
-                                <ImgurComponent.BlurImage image={image} onClick={() => setIndex(columnIndex + idx * 3)} />
+                                <ImgurComponent.BlurImage image={image} onClick={() => {
+                                    setIndex(columnIndex + idx * 3)
+                                    window.gtag('event', 'click', {
+                                        'event_category': 'Image Interaction',
+                                        'event_label': image.link
+                                    })
+                                }} />
                             </div>
                         ))}
                     </div>
@@ -78,7 +119,13 @@ export const Gallery = ({ images }: { images: Imgur.Image[] }) => {
                     <div key={columnIndex} className={`flex flex-col gap-4`}>
                         {column.map((image, idx) => (
                             <div key={idx} className={`group shadow-md bg-gray-100 rounded overflow-hidden cursor-pointer`}>
-                                <ImgurComponent.BlurImage image={image} onClick={() => setIndex(columnIndex + idx * 4)} />
+                                <ImgurComponent.BlurImage image={image} onClick={() => {
+                                    setIndex(columnIndex + idx * 4)
+                                    window.gtag('event', 'click', {
+                                        'event_category': 'Image Interaction',
+                                        'event_label': image.link
+                                    })
+                                }} />
                             </div>
                         ))}
                     </div>

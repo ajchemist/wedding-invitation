@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ImageType } from "types/app";
 import Image from "next/image";
 import Lightbox, { LightboxExternalProps } from "yet-another-react-lightbox";
@@ -16,6 +16,7 @@ type HSnapGalleryProps = {
 }
 
 export default function HSnapGallery({ images }: HSnapGalleryProps) {
+    const ref = useRef<HTMLUListElement>(null);
     const [index, setIndex] = useState(-1);
     const size = useWindowSize();
 
@@ -35,20 +36,55 @@ export default function HSnapGallery({ images }: HSnapGalleryProps) {
         lightboxProps.thumbnails = { width: 96, height: 64, gap: 4 };
     }
 
+    useEffect(() => {
+        if (!ref.current) return;
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    window.gtag('event', 'view', {
+                        "event_category": "Image Impression",
+                        "event_label": entry.target.getAttribute('data-image-link')
+                    })
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.8
+        });
+
+        ref.current.querySelectorAll('img').forEach(img => {
+            observer.observe(img);
+        });
+
+        return () => {
+            observer.disconnect();
+        }
+    }, [ref]);
+
     return (
         <>
             <Lightbox
                 {...lightboxProps}
             />
             <div className={`w-full h-snap-gallery`}>
-                <ul className={`p-4 md:px-8 lg:px-12 flex overflow-x-scroll gap-x-4`}>
+                <ul ref={ref} className={`p-4 md:px-8 lg:px-12 flex overflow-x-scroll gap-x-4`}>
                     {images.map((image, idx) => (
                         <li
                             key={idx}
                             className={`max-w-sm w-7/12 md:w-5/12 lg:w-1/4 shrink-0`}
-                            onClick={() => setIndex(idx)}
+                            onClick={() => {
+                                setIndex(idx)
+                                window.gtag('event', 'click', {
+                                    'event_category': 'Image Interaction',
+                                    'event_label': image.link
+                                })
+                            }}
                         >
                             <BlurImage
+                                data-image-link={image.link}
                                 className={`rounded-lg`}
                                 src={image.link}
                                 alt={``}

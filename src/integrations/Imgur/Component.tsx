@@ -14,6 +14,7 @@ export const BlurImage = ({ image, ...props }: BlurImageProps) => {
 
     return (
         <Image
+            data-image-link={image.link}
             alt=""
             src={image.link.replace(/\.(jpg|jpeg|png)$/, '.webp')}
             width={image.width}
