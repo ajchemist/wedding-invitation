@@ -12,6 +12,9 @@ const config: Config = {
         '128': '32rem',
         '144': '36rem'
       },
+      borderRadius: {
+        '4xl': '2rem',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
