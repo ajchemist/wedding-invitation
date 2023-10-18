@@ -31,7 +31,7 @@ export const INVITE_PARAGRAPH = [
 export const HEROS: Heros  = {
     groom: { name: '석진', fullName: '서석진', realName: '서석진', relationship: '子', bankName: '토스뱅크', bankAccount: '1000-5157-5332', profileImage: Imgur.imageLink("plaJPTO") },
     bride: { name: '민하', fullName: '송민하', realName: '송민하', relationship: '女', bankName: '토스뱅크', bankAccount: '1000-5161-1957', profileImage: Imgur.imageLink("JzzIVoJ") },
-    groomFather: { fullName: '서기문', realName: '서기문', bankName: '농협', bankAccount: '601188-52-057761' },
+    groomFather: { fullName: '서기문', realName: '서기문', bankName: '광주은행', bankAccount: '021-121-692417' },
     groomMother: { fullName: '강문혜', realName: '강순금', bankName: '농협', bankAccount: '601188-52-083767' },
     brideFather: { fullName: '한승철', realName: '한승철', bankName: '광주은행', bankAccount: '720-121-401304' },
     brideMother: { fullName: '강순남', realName: '강순남', bankName: '광주은행', bankAccount: '125-121-471698' }
