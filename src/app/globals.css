@@ -17,11 +17,19 @@
   --yarl__icon_size: 1.616rem;
 }
 
+/* If the user prefers dark mode, 
+we still enforce color-scheme: light, despite the user preference */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  html {
+    color-scheme: light;
+  }
+}
+
+/* If the user prefers light mode, 
+we of course apply color-scheme: light, as usual */
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
   }
 }
 
